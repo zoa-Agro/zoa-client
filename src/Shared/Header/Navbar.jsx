@@ -1,10 +1,11 @@
 import {AiOutlineHeart} from 'react-icons/ai'
 import logo from '../../assets/images/logo.png'
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <a>Home</a>
+        <Link to='/'>Home</Link>
       </li>
       <li>
         <a href="">Shop</a>
@@ -96,7 +97,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="btn ">Login</div>
+        <Link to='/login' className="btn ">Login</Link>
       </div>
     </div>
   );

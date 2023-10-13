@@ -1,0 +1,93 @@
+[
+    {
+      "plant_name": "Aloe Vera",
+      "price": 12.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Succulent"
+    },
+    {
+      "plant_name": "Peace Lily",
+      "price": 15.49,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Houseplant"
+    },
+    {
+      "plant_name": "Fiddle Leaf Fig",
+      "price": 34.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Houseplant"
+    },
+    {
+      "plant_name": "Lavender",
+      "price": 8.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Herb"
+    },
+    {
+      "plant_name": "Snake Plant",
+      "price": 9.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Succulent"
+    },
+    {
+      "plant_name": "Rose",
+      "price": 19.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Flower"
+    },
+    {
+      "plant_name": "Bamboo Palm",
+      "price": 24.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Houseplant"
+    },
+    {
+      "plant_name": "Mint",
+      "price": 5.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Herb"
+    },
+    {
+      "plant_name": "Cactus",
+      "price": 7.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Succulent"
+    },
+    {
+      "plant_name": "Sunflower",
+      "price": 12.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Flower"
+    },
+    {
+      "plant_name": "Jade Plant",
+      "price": 11.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Succulent"
+    },
+    {
+      "plant_name": "Spider Plant",
+      "price": 14.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Houseplant"
+    },
+    {
+      "plant_name": "Thyme",
+      "price": 6.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Herb"
+    },
+    {
+      "plant_name": "Tulip",
+      "price": 16.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Flower"
+    },
+    {
+      "plant_name": "African Violet",
+      "price": 8.99,
+      "image": "https://img.freepik.com/free-photo/small-barrel-cactus-terracotta-pot_53876-133225.jpg?w=740&t=st=1697220449~exp=1697221049~hmac=32ab875d56dced3aba258af141ee8016296d46541fb543babec55f0521331ca4",
+      "category": "Houseplant"
+    }
+]
+  
