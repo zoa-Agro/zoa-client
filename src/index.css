@@ -4,7 +4,21 @@
 
 * {
   margin: 0;
-  font-family: 'Roboto Slab', serif;
+  direction: ltr;
+  font-family: 'Jost', sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.swiper-pagination-bullet-active{
+ background-color: #6bb42f;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

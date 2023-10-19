@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Fluffy",
+    "category": "Dog",
+    "price": 500,
+    "image": "https://img.freepik.com/free-photo/selective-focus-shot-adorable-golden-retriever-outdoors_181624-45466.jpg?w=826&t=st=1697303640~exp=1697304240~hmac=a88ab9f41e2ef17b5068e6da823f3d5617f9cdfb85b5c6200a7375d69905de0e",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Whiskers",
+    "category": "Cat",
+    "price": 300,
+    "image": "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?w=996&t=st=1697303501~exp=1697304101~hmac=e08615beb5d41d382f21b47cec672ae39d2feaa1f65204157f85d531f10dab71",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Bubbles",
+    "category": "Fish",
+    "price": 20,
+    "image": "https://img.freepik.com/free-photo/abstract-3d-fish-studio_23-2150702335.jpg?t=st=1697303762~exp=1697307362~hmac=75b72e8dde39fb23726358295468fec6e0875ba025941942ac0779c4e77d5ef2&w=900",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Hopper",
+    "category": "Rabbit",
+    "price": 150,
+    "image": "https://img.freepik.com/free-photo/fluffy-hare-sitting-looking-camera-indoors-generated-by-ai_188544-30889.jpg?t=st=1697304167~exp=1697307767~hmac=aa25074e1a3a056fcae09cb49d34d9b088387823ed9d28550abab59623bd5971&w=996",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Tweety",
+    "category": "Bird",
+    "price": 40,
+    "image": "https://img.freepik.com/premium-photo/bird-cage-with-bird-inside-another-bird-cage-wooden-table_725455-1271.jpg?w=900",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Rex",
+    "category": "Dog",
+    "price": 600,
+    "image": "https://img.freepik.com/free-photo/selective-focus-shot-adorable-golden-retriever-outdoors_181624-45466.jpg?w=826&t=st=1697303640~exp=1697304240~hmac=a88ab9f41e2ef17b5068e6da823f3d5617f9cdfb85b5c6200a7375d69905de0e",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Mittens",
+    "category": "Cat",
+    "price": 250,
+    "image": "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?w=996&t=st=1697303501~exp=1697304101~hmac=e08615beb5d41d382f21b47cec672ae39d2feaa1f65204157f85d531f10dab71",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Splash",
+    "category": "Fish",
+    "price": 25,
+    "image": "https://img.freepik.com/free-photo/abstract-3d-fish-studio_23-2150702335.jpg?t=st=1697303762~exp=1697307362~hmac=75b72e8dde39fb23726358295468fec6e0875ba025941942ac0779c4e77d5ef2&w=900",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Buddy",
+    "category": "Dog",
+    "price": 550,
+    "image": "https://img.freepik.com/free-photo/selective-focus-shot-adorable-golden-retriever-outdoors_181624-45466.jpg?w=826&t=st=1697303640~exp=1697304240~hmac=a88ab9f41e2ef17b5068e6da823f3d5617f9cdfb85b5c6200a7375d69905de0e",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Tiger",
+    "category": "Cat",
+    "price": 350,
+    "image": "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?w=996&t=st=1697303501~exp=1697304101~hmac=e08615beb5d41d382f21b47cec672ae39d2feaa1f65204157f85d531f10dab71",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Nemo",
+    "category": "Fish",
+    "price": 30,
+    "image": "https://img.freepik.com/free-photo/abstract-3d-fish-studio_23-2150702335.jpg?t=st=1697303762~exp=1697307362~hmac=75b72e8dde39fb23726358295468fec6e0875ba025941942ac0779c4e77d5ef2&w=900",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Max",
+    "category": "Dog",
+    "price": 480,
+    "image": "https://img.freepik.com/free-photo/selective-focus-shot-adorable-golden-retriever-outdoors_181624-45466.jpg?w=826&t=st=1697303640~exp=1697304240~hmac=a88ab9f41e2ef17b5068e6da823f3d5617f9cdfb85b5c6200a7375d69905de0ehttps://img.freepik.com/free-photo/selective-focus-shot-adorable-golden-retriever-outdoors_181624-45466.jpg?w=826&t=st=1697303640~exp=1697304240~hmac=a88ab9f41e2ef17b5068e6da823f3d5617f9cdfb85b5c6200a7375d69905de0ehttps://img.freepik.com/free-photo/selective-focus-shot-adorable-golden-retriever-outdoors_181624-45466.jpg?w=826&t=st=1697303640~exp=1697304240~hmac=a88ab9f41e2ef17b5068e6da823f3d5617f9cdfb85b5c6200a7375d69905de0e",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Luna",
+    "category": "Cat",
+    "price": 280,
+    "image": "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?w=996&t=st=1697303501~exp=1697304101~hmac=e08615beb5d41d382f21b47cec672ae39d2feaa1f65204157f85d531f10dab71",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Goldie",
+    "category": "Fish",
+    "price": 15,
+    "image": "https://img.freepik.com/free-photo/abstract-3d-fish-studio_23-2150702335.jpg?t=st=1697303762~exp=1697307362~hmac=75b72e8dde39fb23726358295468fec6e0875ba025941942ac0779c4e77d5ef2&w=900",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Oscar",
+    "category": "Dog",
+    "price": 520,
+    "image": "https://img.freepik.com/free-photo/selective-focus-shot-adorable-golden-retriever-outdoors_181624-45466.jpg?w=826&t=st=1697303640~exp=1697304240~hmac=a88ab9f41e2ef17b5068e6da823f3d5617f9cdfb85b5c6200a7375d69905de0e",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Smokey",
+    "category": "Cat",
+    "price": 320,
+    "image": "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?w=996&t=st=1697303501~exp=1697304101~hmac=e08615beb5d41d382f21b47cec672ae39d2feaa1f65204157f85d531f10dab71",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "name": "Nala",
+    "category": "Fish",
+    "price": 18,
+    "image": "https://img.freepik.com/free-photo/abstract-3d-fish-studio_23-2150702335.jpg?t=st=1697303762~exp=1697307362~hmac=75b72e8dde39fb23726358295468fec6e0875ba025941942ac0779c4e77d5ef2&w=900",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  }
+]

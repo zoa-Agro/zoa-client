@@ -1,101 +1,101 @@
-import React from "react";
-import plants from "../../../assets/images/plants-2.jpg";
-import birds from "../../../assets/images/birds-2.jpg";
-import pets from "../../../assets/images/pets.jpg";
-import fish from "../../../assets/images/fish-2.jpg";
-import { Link } from "react-router-dom";
+import React, { useState,useRef } from "react";
+import plants from "../../../assets/images/plants.png";
+import birds from "../../../assets/images/birds1.png";
+import pets from "../../../assets/images/pets.png";
+import fish from "../../../assets/images/fish.png";
+import food from "../../../assets/images/food.png";
+import tools from "../../../assets/images/tools.png";
+import medicine from "../../../assets/images/medicine.png";
+import { Link, useNavigate } from "react-router-dom";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './Category.css'
+
+
+// import required modules
+import { Pagination } from 'swiper/modules';
+
 const Categories = () => {
+  const navigate= useNavigate()
+  const handleCategory=(categoryName) => {  
+    navigate('/shop',{state:{data:{categoryName}}})
+    
+  }
+  
+  
   return (
-    <div className="mt-20 w-11/12 md:w-10/12 mx-auto ">
-      <h2 className="text-center text-4xl mb-10">
-        <span className="text-green-400 font-extrabold text-5xl">|</span> Our
+    <div className="mt-20 w-11/12 md:w-10/12 mx-auto">
+      <h2 className="text-center font-medium text-3xl md:text-4xl mb-20">
+        <span className="text-[#6bb42f] font-extrabold text-3xl md:text-5xl">|</span> Our
         Categories{" "}
-        <span className="text-green-400 font-extrabold text-5xl">|</span>
+        <span className="text-[#6bb42f] font-extrabold text-3xl md:text-5xl">|</span>
       </h2>
-      <div className="grid md:grid-cols-2 gap-8">
-        <Link
-          className="hero h-full"
-          style={{
-            backgroundImage: `url(${plants})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="hero-overlay bg-opacity-20"></div>
-          <div className="hero-content text-center text-neutral-content w-full">
-            <button className="btn rounded-none mt-40 md:mt-72 w-3/4 text-white bg-opacity-40 text-lg  bg-black hover:text-black hover:bg-green-400">
-              Plants & Seeds
-            </button>
-          </div>
-        </Link>
-        <div className="grid md:grid-cols-2 gap-8 ">
-          <Link
-            className="hero h-full"
-            style={{
-              backgroundImage: `url(${birds})`,
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="hero-overlay bg-opacity-20"></div>
-            <div className="hero-content text-center text-neutral-content w-full">
-              <button className="btn rounded-none mt-40 w-3/4 text-white bg-opacity-40 text-lg  bg-black hover:text-black hover:bg-green-400">
-                birds
-              </button>
-            </div>
-          </Link>
-          <Link
-            className="hero h-full"
-            style={{
-              backgroundImage: `url(${pets})`,
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="hero-overlay bg-opacity-20"></div>
-            <div className="hero-content text-center text-neutral-content w-full">
-              <button className="btn rounded-none mt-40 w-3/4 text-white bg-opacity-40 text-lg  bg-black hover:text-black hover:bg-green-400">
-                Pets
-              </button>
-            </div>
-          </Link>
-          <Link
-            className="hero h-full"
-            style={{
-              backgroundImage: `url(${fish})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="hero-overlay bg-opacity-20"></div>
-            <div className="hero-content text-center text-neutral-content w-full">
-              <button className="btn rounded-none   mt-40 w-3/4 text-white bg-opacity-40 text-lg  bg-black hover:text-black hover:bg-green-400">
-                Fish
-              </button>
-            </div>
-          </Link>
-          <Link
-            className="hero h-full"
-            style={{
-              backgroundImage: `url(${fish})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="hero-overlay bg-opacity-20"></div>
-            <div className="hero-content text-center text-neutral-content w-full">
-              <button className="btn rounded-none mt-40 w-3/4 text-white bg-opacity-40 text-lg  bg-black hover:text-black hover:bg-green-400">
-                Food
-              </button>
-            </div>
-          </Link>
-        </div>
-      </div>
+      <Swiper
+      slidesPerView={2}
+      spaceBetween={10}
+      
+
+      pagination={{
+        clickable: true,
+      }}
+    
+      breakpoints={{
+        '@0.00': {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        '@0.75': {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        '@1.00': {
+          slidesPerView: 5,
+          spaceBetween: 40,
+        },
+        '@1.50': {
+          slidesPerView: 5,
+          spaceBetween: 40,
+        }
+      }}
+      modules={[Pagination]}
+      className="mySwiper">
+        <SwiperSlide className="mb-10"> <div onClick={()=>handleCategory("plants")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]	 ">
+          <img src={plants}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
+          <h3  className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Plants & Seeds</h3>
+        </div></SwiperSlide>
+        <SwiperSlide> <div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+          <img src={birds}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
+          <h3 onClick={()=>handleCategory("birds")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Birds</h3>
+        </div></SwiperSlide>
+        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+          <img src={fish}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
+          <h3 onClick={()=>handleCategory("fish")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Fish</h3>
+        </div></SwiperSlide>
+        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px] ">
+          <img src={pets}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
+          <h3 onClick={()=>handleCategory("animals")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Animals</h3>
+        </div></SwiperSlide>
+        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+          <img src={food}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
+          <h3 onClick={()=>handleCategory("food")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Food</h3>
+        </div></SwiperSlide>
+        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+          <img src={medicine}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
+          <h3 onClick={()=>handleCategory("medicine")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Medicine</h3>
+        </div></SwiperSlide>
+        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+          <img src={tools}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700 	" alt="" />
+          <h3 onClick={()=>handleCategory("tools")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Tools</h3>
+        </div></SwiperSlide>
+        
+       
+      </Swiper>
+     
     </div>
   );
 };

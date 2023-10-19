@@ -93,7 +93,7 @@ const Register = () => {
             <h2 className="text-center font-semibold text-3xl text-green-400">
               Register
             </h2>
-            <div className="grid grid-cols-2 gap-5">
+          
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -128,43 +128,8 @@ const Register = () => {
                   </p>
                 )}
               </div>
-            </div>
-            <div className="grid grid-cols-2 gap-5">
-              <div className="form-control ">
-                <label className="label">
-                  <span className="label-text">Address</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your address"
-                  className="input input-bordered"
-                  {...register("address", { required: true })}
-                />
-
-                {errors.address?.type === "required" && (
-                  <p className="text-red-600" role="alert">
-                    Address is required
-                  </p>
-                )}
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Zip Code</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your zip code"
-                  className="input input-bordered"
-                  {...register("zipcode", { required: true })}
-                />
-
-                {errors.zipcode?.type === "required" && (
-                  <p className="text-red-600" role="alert">
-                    Zip code is required
-                  </p>
-                )}
-              </div>
-            </div>
+           
+           
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>

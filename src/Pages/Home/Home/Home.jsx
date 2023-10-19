@@ -3,6 +3,7 @@ import Hero from "../Banner/Hero";
 import Categories from "../Categories/Categories";
 import Features from "../Features/Features";
 import NewArrivals from "../NewArrivals/NewArrivals";
+import PromoBanner from "../PromoBanner/PromoBanner";
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Hero/>
             <Features/>
             <Categories/>
+            <PromoBanner/>
             <NewArrivals/>s
         </div>
     );
