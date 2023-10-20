@@ -3,16 +3,20 @@ import { useForm, Controller } from "react-hook-form";
 
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const image_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
 const AddProduct = () => {
   const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+
   const [subcategories, setSubcategories] = useState([]);
   const {
     register,
     control,
     formState: { errors },
     handleSubmit,
+    reset
   } = useForm();
   
 
@@ -27,7 +31,17 @@ const AddProduct = () => {
       }
     else if (category === 'Fish') {
       setSubcategories(['Axolot', 'Fighter Fish','Guppy/ Molly/ Platy','Gold Fish/ Koi','Crab', 'Tutle']);
-    } else {
+    }
+    else if (category === 'Foods') {
+      setSubcategories(['Fish Foods', 'Birds Foods','Cat Foods','Dog Foods']);
+    }
+    else if (category === 'Medicines') {
+      setSubcategories(['Fish Medicines', 'Birds Medicines','Pets Medicines']);
+    }
+    else if (category === 'Tools') {
+      setSubcategories(['Fertilizer', 'Garden Tools','Aquarium Tools','Pet Tools']);
+    }
+     else {
       setSubcategories([]);
     }
   };
@@ -54,20 +68,97 @@ const AddProduct = () => {
             image: imageData.data.display_url,
           
           };
+          console.log(data.category);
           console.log(product);
-          //   axiosSecure.post("/classes", classData).then((data) => {
-          //     if (data.data.insertedId) {
-          //       reset();
-          //       Swal.fire({
-          //         title: "Class added Successfully",
-          //         text: "Waiting for admin Approval !!",
-          //         icon: "success",
-          //         confirmButtonText: "ok",
-          //       });
-          //     }
-          //   });
+          if(data.category === 'Plants and Seeds'){
+            axiosSecure.post("/plants", product).then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Product added Successfully",
+                  icon: "success",
+                  confirmButtonText: "ok",
+                });
+              }
+            })
+          }
+          if(data.category === 'Birds'){
+            axiosSecure.post("/birds", product).then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Product added Successfully",
+                  icon: "success",
+                  confirmButtonText: "ok",
+                });
+              }
+            })
+          }
+          if(data.category === 'Fish'){
+            axiosSecure.post("/fishes", product).then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Product added Successfully",
+                  icon: "success",
+                  confirmButtonText: "ok",
+                });
+              }
+            })
+          }
+          if(data.category === 'Animals'){
+            axiosSecure.post("/animals", product).then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Product added Successfully",
+                  icon: "success",
+                  confirmButtonText: "ok",
+                });
+              }
+            })
+          }
+          if(data.category === 'Foods'){
+            axiosSecure.post("/foods", product).then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Product added Successfully",
+                  icon: "success",
+                  confirmButtonText: "ok",
+                });
+              }
+            })
+          }
+          if(data.category === 'Medicines'){
+            axiosSecure.post("/medicines", product).then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Product added Successfully",
+                  icon: "success",
+                  confirmButtonText: "ok",
+                });
+              }
+            })
+          }
+          if(data.category === 'Tools'){
+            axiosSecure.post("/tools", product).then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Product added Successfully",
+                  icon: "success",
+                  confirmButtonText: "ok",
+                });
+              }
+            })
+          }
+          
+        
         }
-      });
+      })
+     
   };
   return (
     <div className="w-11/12 md:w-3/4 mx-auto">
@@ -157,6 +248,9 @@ const AddProduct = () => {
                 <option value="Birds">Birds</option>
                 <option value="Fish">Fish</option>
                 <option value="Animals">Animals</option>
+                <option value="Foods">Foods</option>
+                <option value="Medicines">Medicines</option>
+                <option value="Tools">Tools</option>
               
               </select>
               {errors.category && <p className="text-red-500">{errors.category.message}</p>}

@@ -52,6 +52,7 @@ const Shop = () => {
         <div className="h-12"></div>
         <div className="p-5 shadow mb-10 bg-white">
           <img
+          className="object-cover object-center w-full"
             src="https://prestashop.mahardhi.com/MT07/greensgarden/01/c/31-category_default/plants.jpg"
             alt="Plants"
           />
@@ -201,6 +202,15 @@ const Shop = () => {
                       className="radio radio-success"
                     />
                     House plants
+                  </label>
+                  <label className="flex gap-2">
+                    <input
+                      type="radio"
+                      name="group2"
+                      value="Seeds"
+                      className="radio radio-success"
+                    />
+                    Seeds
                   </label>
                 </div>
               ) : category == "animals" ? (
