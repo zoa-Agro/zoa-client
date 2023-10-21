@@ -34,7 +34,7 @@ const UpdateModal = ({ uproduct,refetch }) => {
 
   return (
     <dialog id="my_modal_6" className="modal">
-      <div className="modal-box w-11/12 max-w-3xl">
+      <div className="modal-box w-11/12  max-w-3xl">
         <form   onSubmit={handleSubmit(onSubmit)} >
           <div className="flex space-x-10 items-center justify-center">
 
@@ -44,8 +44,9 @@ const UpdateModal = ({ uproduct,refetch }) => {
               src={uproduct?.image}
               className="w-[150px] h-[150px] mask mask-squircle object-cover object-center"
               alt="" />
+              <h2 className="text-center font-semibold text-lg">{uproduct?.name}</h2>
           </div>
-          <div className=" flex gap-5">
+          <div className=" md:flex gap-5 space-y-4 md:space-y-0">
           <div className="form-control">
         <label>Price: {uproduct?.price} Tk</label>
         <Controller

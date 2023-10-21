@@ -174,12 +174,12 @@ const AddProduct = () => {
     return <Spinner color="#6bb42f"/>
   }
   return (
-    <div className="w-11/12 md:w-3/4 mx-auto">
+    <div className="w-11/12 md:w-3/4 mx-auto my-10">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className=" border bg-[#e9f8e1] p-5 rounded space-y-3 shadow"
       >
-       <h2 className="text-center font-medium text-3xl md:text-4xl my-10">
+       <h2 className="text-center font-medium text-3xl md:text-4xl my-5 ">
         <span className="text-[#6bb42f] font-extrabold text-3xl md:text-5xl">|</span> Add a
         Product{" "}
         <span className="text-[#6bb42f] font-extrabold text-3xl md:text-5xl">|</span>
@@ -237,7 +237,7 @@ const AddProduct = () => {
             </p>
           )}
         </div>
-       <div className="flex justify-between gap-5">
+       <div className="md:flex justify-between gap-5">
        <div className="w-full" >
             <label htmlFor="category" className="label">Product Category*</label>
         <Controller 
@@ -310,7 +310,7 @@ const AddProduct = () => {
          
         </div>
       
-        <div className="flex justify-between gap-5">
+        <div className="md:flex justify-between gap-5">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Available quantity*</span>

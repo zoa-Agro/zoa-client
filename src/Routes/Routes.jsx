@@ -7,6 +7,9 @@ import Shop from "../Pages/Shop/Shop/Shop";
 import Dashboard from "../Layout/Dashboard";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import ManageProducts from '../Pages/Dashboard/ManageProducts/ManageProducts'
+import SellerHome from "../Pages/Dashboard/SellerHome/SellerHome";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
+import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,16 @@ const router = createBrowserRouter([
     path:'/dashboard',
     element:<Dashboard/>,
     children:[
+      //admin dashboard
+      {
+        path:'admin-home',
+        element:<AdminHome/>
+      },
+      {
+        path:'manage-user',
+        element:<ManageUser/>
+      },
+      //seller dashboard
       {
         path: 'add-product',
         element:<AddProduct/>
@@ -42,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: 'manage-products',
         element: <ManageProducts/>
+        
+      },
+      {
+        path: 'seller-home',
+        element: <SellerHome/>
         
       }
     ]

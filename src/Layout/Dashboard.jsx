@@ -12,10 +12,10 @@ import { BsDatabaseFillAdd } from "react-icons/bs";
 import logo from "../assets/images/logo.png";
 
 const Dashboard = () => {
-  const isAdmin = false;
+  const isAdmin = true;
   // const [isAdmin] = useAdmin();
   const { user, logOut } = useAuth();
-  const isSeller = true;
+  const isSeller = false;
   // const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open">
@@ -30,7 +30,7 @@ const Dashboard = () => {
       <div className="drawer-side ">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-        <div className="menu  w-80 h-full text-lg font-medium bg-[#8ac559]  text-base-content">
+        <div className="menu  md:w-80 h-full text-lg font-medium bg-[#8ac559]  text-base-content">
           <div className=" bg-white ">
             <img className="w-32" src={logo} alt="" />
             {/* <div>
@@ -58,13 +58,9 @@ const Dashboard = () => {
                       <FaHome /> Admin Home
                     </NavLink>
                   </li>
+                 
                   <li>
-                    <NavLink to="dashboard/manageclasses">
-                      <SiGoogleclassroom /> Manage Classes
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="dashboard/manageusers">
+                    <NavLink to="/dashboard/manage-user">
                       <MdManageAccounts /> Manage Users
                     </NavLink>
                   </li>
