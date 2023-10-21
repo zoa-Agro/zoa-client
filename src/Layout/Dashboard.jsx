@@ -83,8 +83,8 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard/myclasses">
-                      <SiGoogleclassroom /> My Products
+                    <NavLink to="/dashboard/manage-products">
+                      <SiGoogleclassroom /> Manage Products
                     </NavLink>
                   </li>
                 </>

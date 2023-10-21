@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { Spinner} from 'react-spinners-css';
 
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
@@ -9,6 +10,7 @@ const image_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const AddProduct = () => {
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
+  const [loading,setLoading]=useState(false)
 
   const [subcategories, setSubcategories] = useState([]);
   const {
@@ -48,6 +50,7 @@ const AddProduct = () => {
 
   const image_hoisting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
   const onSubmit = (data) => {
+    setLoading(true)
     const formData = new FormData();
     formData.append("image", data.image[0]);
     fetch(image_hoisting_url, {
@@ -64,7 +67,7 @@ const AddProduct = () => {
             seller_name: user?.displayName,
             seller_email: user?.email,
             available_quantity: parseInt(data.available_quantity),
-            price: parseFloat(data.price),
+            price: parseFloat(data.price).toFixed(2),
             image: imageData.data.display_url,
           
           };
@@ -73,6 +76,7 @@ const AddProduct = () => {
           if(data.category === 'Plants and Seeds'){
             axiosSecure.post("/plants", product).then((data) => {
               if (data.data.insertedId) {
+                setLoading(false)
                 reset();
                 Swal.fire({
                   title: "Product added Successfully",
@@ -85,6 +89,7 @@ const AddProduct = () => {
           if(data.category === 'Birds'){
             axiosSecure.post("/birds", product).then((data) => {
               if (data.data.insertedId) {
+                setLoading(false)
                 reset();
                 Swal.fire({
                   title: "Product added Successfully",
@@ -97,6 +102,7 @@ const AddProduct = () => {
           if(data.category === 'Fish'){
             axiosSecure.post("/fishes", product).then((data) => {
               if (data.data.insertedId) {
+                setLoading(false)
                 reset();
                 Swal.fire({
                   title: "Product added Successfully",
@@ -109,6 +115,7 @@ const AddProduct = () => {
           if(data.category === 'Animals'){
             axiosSecure.post("/animals", product).then((data) => {
               if (data.data.insertedId) {
+                setLoading(false)
                 reset();
                 Swal.fire({
                   title: "Product added Successfully",
@@ -121,6 +128,7 @@ const AddProduct = () => {
           if(data.category === 'Foods'){
             axiosSecure.post("/foods", product).then((data) => {
               if (data.data.insertedId) {
+                setLoading(false)
                 reset();
                 Swal.fire({
                   title: "Product added Successfully",
@@ -133,6 +141,7 @@ const AddProduct = () => {
           if(data.category === 'Medicines'){
             axiosSecure.post("/medicines", product).then((data) => {
               if (data.data.insertedId) {
+                setLoading(false)
                 reset();
                 Swal.fire({
                   title: "Product added Successfully",
@@ -145,6 +154,7 @@ const AddProduct = () => {
           if(data.category === 'Tools'){
             axiosSecure.post("/tools", product).then((data) => {
               if (data.data.insertedId) {
+                setLoading(false)
                 reset();
                 Swal.fire({
                   title: "Product added Successfully",
@@ -160,6 +170,9 @@ const AddProduct = () => {
       })
      
   };
+  if(loading){
+    return <Spinner color="#6bb42f"/>
+  }
   return (
     <div className="w-11/12 md:w-3/4 mx-auto">
       <form
