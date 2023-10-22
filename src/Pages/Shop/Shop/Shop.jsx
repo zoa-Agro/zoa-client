@@ -7,38 +7,70 @@ import {
 import { useLocation } from "react-router-dom";
 import ModalComponent from "../../Home/NewArrivals/ModalComponent";
 import ShopBanner from "./ShopBanner";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import ProductCard from "./ProductCard";
+import { Spinner } from "react-spinners-css";
 
 const Shop = () => {
-  const [products, setProducts] = useState([]);
+  const [axiosSecure]=useAxiosSecure()
+  const [loading, setLoading] = useState(true);
   const [modalProduct, setModalProduct] = useState(null);
   const [category, setCategory] = useState(null);
+  const [subCategory, setSubCategory] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
     const categoryName = location?.state?.data.categoryName;
     setCategory(categoryName);
+    console.log(categoryName)
   }, []);
+  const { data: products = [], refetch } = useQuery({
+    queryKey: ["all-products",setLoading,category,subCategory,setSubCategory],
+    queryFn: async () => {
 
-  useEffect(() => {
-    if (category === "plants") {
-      fetch("plants.json")
-        .then((res) => res.json())
-        .then((data) => setProducts(data));
+      let url = `/all-products?category=${category}`;
+
+    if (subCategory) {
+      url += `&subCategory=${subCategory}`;
     }
-    if (category === "animals") {
-      fetch("pets.json")
-        .then((res) => res.json())
-        .then((data) => setProducts(data));
-    }
-  }, [category]);
+    
+    console.log(url)
+    
+      const res = await axiosSecure.get(url);
+      setLoading(false);
+      
+      return res.data;
+    },
+  });
+  // useEffect(() => {
+  //   if (category === "Plants and Seeds") {
+  //     fetch("Plants.json")
+  //       .then((res) => res.json())
+  //       .then((data) => setProducts(data));
+  //   }
+  //   if (category === "animals") {
+  //     fetch("pets.json")
+  //       .then((res) => res.json())
+  //       .then((data) => setProducts(data));
+  //   }
+  // }, [category]);
   const handleCategory = (event) => {
+    
+    setSubCategory(null)
     if (event.target.checked) {
+      ///console.log(event.target.value);
       setCategory(event.target.value);
+      refetch()
     }
   };
   const handleSubCategory = (event) => {
+   
     if (event.target.checked) {
+      setSubCategory(event.target.value);
+      
       console.log(event.target.value);
+      refetch()
     }
   };
   const modalOpening = (id) => {
@@ -54,21 +86,21 @@ const Shop = () => {
           <img
           className="object-cover object-center w-full"
             src="https://prestashop.mahardhi.com/MT07/greensgarden/01/c/31-category_default/plants.jpg"
-            alt="Plants"
+            alt="Plants and Seeds"
           />
           <div className="flex justify-between p-5 items-center  ">
             <h3 className="text-3xl font-bold ">
-              {category == "plants"
+              {category == "Plants and Seeds"
                 ? "Plants & Seeds"
-                : category == "birds"
+                : category == "Birds"
                 ? "Birds"
-                : category == "fish"
+                : category == "Fish"
                 ? "Fish"
-                : category == "animals"
+                : category == "Animals"
                 ? "Animals"
-                : category == "medicine"
+                : category == "Medicine"
                 ? "Medicine"
-                : category == "tools"
+                : category == "Tools"
                 ? "Tools"
                 : "Shop"}
             </h3>
@@ -91,9 +123,9 @@ const Shop = () => {
                   <input
                     type="radio"
                     name="group1"
-                    value="plants"
+                    value="Plants and Seeds"
                     className="radio radio-success"
-                    checked={category === "plants" ? true : false}
+                    checked={category === "Plants and Seeds" ? true : false}
                   />
                   Plants & Seeds
                 </label>
@@ -101,9 +133,9 @@ const Shop = () => {
                   <input
                     type="radio"
                     name="group1"
-                    value="birds"
+                    value="Birds"
                     className="radio radio-success"
-                    checked={category === "birds" ? true : false}
+                    checked={category === "Birds" ? true : false}
                   />
                   Birds
                 </label>
@@ -111,9 +143,9 @@ const Shop = () => {
                   <input
                     type="radio"
                     name="group1"
-                    value="fish"
+                    value="Fish"
                     className="radio radio-success"
-                    checked={category === "fish" ? true : false}
+                    checked={category === "Fish" ? true : false}
                   />
                   Fish
                 </label>
@@ -121,9 +153,9 @@ const Shop = () => {
                   <input
                     type="radio"
                     name="group1"
-                    value="animals"
+                    value="Animals"
                     className="radio radio-success"
-                    checked={category === "animals" ? true : false}
+                    checked={category === "Animals" ? true : false}
                   />
                   Animals
                 </label>
@@ -131,9 +163,9 @@ const Shop = () => {
                   <input
                     type="radio"
                     name="group1"
-                    value="food"
+                    value="Food"
                     className="radio radio-success"
-                    checked={category === "food" ? true : false}
+                    checked={category === "Food" ? true : false}
                   />
                   Food
                 </label>
@@ -141,9 +173,9 @@ const Shop = () => {
                   <input
                     type="radio"
                     name="group1"
-                    value="medicine"
+                    value="Medicine"
                     className="radio radio-success"
-                    checked={category === "medicine" ? true : false}
+                    checked={category === "Medicine" ? true : false}
                   />
                   Medicine
                 </label>
@@ -151,9 +183,9 @@ const Shop = () => {
                   <input
                     type="radio"
                     name="group1"
-                    value="tools"
+                    value="Tools"
                     className="radio radio-success"
-                    checked={category === "tools" ? true : false}
+                    checked={category === "Tools" ? true : false}
                   />
                   Tools
                 </label>
@@ -162,7 +194,7 @@ const Shop = () => {
               {category && (
                 <h3 className="text-lg font-semibold mt-2">Sub Categories:-</h3>
               )}
-              {category == "plants" ? (
+              {category == "Plants and Seeds" ? (
                 <div
                   onChange={handleSubCategory}
                   className="px-2 space-y-1 border-b pb-3"
@@ -171,37 +203,46 @@ const Shop = () => {
                     <input
                       type="radio"
                       name="group2"
-                      value="Small plants"
+                      value="Small Plants"
                       className="radio radio-success"
                     />
-                    Small plants
+                    Small Plants
                   </label>
                   <label className="flex gap-2">
                     <input
                       type="radio"
                       name="group2"
-                      value="Flower plants"
+                      value="Flower Plants"
                       className="radio radio-success"
                     />
-                    Flower plants
+                    Flower Plants
                   </label>
                   <label className="flex gap-2">
                     <input
                       type="radio"
                       name="group2"
-                      value="Fruits plants"
+                      value="Fruits Plants"
                       className="radio radio-success"
                     />
-                    Fruits plants
+                    Fruit Plants
                   </label>
                   <label className="flex gap-2">
                     <input
                       type="radio"
                       name="group2"
-                      value="House plants"
+                      value="Indoor Plant"
                       className="radio radio-success"
                     />
-                    House plants
+                   Indoor Plants
+                  </label>
+                  <label className="flex gap-2">
+                    <input
+                      type="radio"
+                      name="group2"
+                      value="Medicine Plants"
+                      className="radio radio-success"
+                    />
+                   Medicine Plants
                   </label>
                   <label className="flex gap-2">
                     <input
@@ -213,7 +254,7 @@ const Shop = () => {
                     Seeds
                   </label>
                 </div>
-              ) : category == "animals" ? (
+              ) : category == "Animals" ? (
                 <div
                   onChange={handleSubCategory}
                   className="px-2 space-y-1 border-b pb-3 "
@@ -255,7 +296,7 @@ const Shop = () => {
                     Rabbit
                   </label>
                 </div>
-              ) : category == "birds" ? (
+              ) : category == "Birds" ? (
                 <div
                   onChange={handleSubCategory}
                   className="px-2 space-y-1 border-b pb-3 "
@@ -266,6 +307,7 @@ const Shop = () => {
                       name="group2"
                       value="Budgie"
                       className="radio radio-success"
+                     
                     />
                     Budgie
                   </label>
@@ -275,6 +317,7 @@ const Shop = () => {
                       name="group2"
                       value="Chicken"
                       className="radio radio-success"
+                      
                     />
                     Chicken
                   </label>
@@ -284,6 +327,7 @@ const Shop = () => {
                       name="group2"
                       value="Pigion"
                       className="radio radio-success"
+                      
                     />
                     Pigion
                   </label>
@@ -293,6 +337,7 @@ const Shop = () => {
                       name="group2"
                       value="Taki / Pea-Cock"
                       className="radio radio-success"
+                     
                     />
                     Taki / Pea-Cock
                   </label>
@@ -307,7 +352,7 @@ const Shop = () => {
                   </label>
                 </div>
               ) : (
-                category == "fish" && (
+                category == "Fish" && (
                   <div
                     onChange={handleSubCategory}
                     className="px-2 space-y-1 border-b pb-3  "
@@ -399,53 +444,15 @@ const Shop = () => {
                 </select>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-              {products.map((product) => (
-                <div className=" h-fit group border bg-white">
-                  <div className="relative overflow-hidden">
-                    <img
-                      className="h-64 w-full object-cover border-b-2"
-                      src={product.image}
-                      alt=""
-                    />
-                    <div className="absolute flex flex-col gap-3   items-center right-0  top-2  group-hover:right-3 opacity-0 group-hover:opacity-100 transition-all duration-2000">
-                      <div
-                        className=" text-gray-800 text-lg p-3 bg-gray-300 bg-opacity-40  hover:bg-black hover:text-white tooltip tooltip-left"
-                        data-tip="Add to Cart"
-                      >
-                        <AiOutlineShoppingCart />
-                      </div>
-                      <div
-                        className=" text-gray-800 text-lg p-3 bg-gray-300 bg-opacity-40 hover:bg-black hover:text-white tooltip tooltip-left"
-                        data-tip="Add to Wishlist"
-                      >
-                        <AiOutlineHeart />
-                      </div>
-                      {/* modal opening button */}
-                      <div
-                        onClick={() => modalOpening(product)}
-                        className=" text-gray-800 text-lg p-3 bg-gray-300 bg-opacity-40 hover:bg-black hover:text-white tooltip tooltip-left"
-                        data-tip="Quick View"
-                      >
-                        <AiOutlineSearch />
-                      </div>
-                    </div>
-                  </div>
-                  <h2 className="mt-3 text-lg capitalize text-center">
-                    {product.name}
-                  </h2>
-                  <del className="text-red-700 text-lg">
-                    ${(product.price + 5).toFixed(2)}
-                  </del>
-                  <p className="text-lg mt-2 ml-1 inline-block">
-                    ${product.price}
-                  </p>
-                </div>
-              ))}
+            <div >
+              {loading?  <div className="flex justify-center mt-20">
+                <Spinner className="mx-auto " color="#6bb42f"/>
+              </div> :<ProductCard products={products}/>}
+         
             </div>
             <div>
               {/* modal for quick view */}
-              <ModalComponent modalProduct={modalProduct} />
+              <ModalComponent modalProduct={modalProduct} loading={loading} />
             </div>
           </div>
         </div>

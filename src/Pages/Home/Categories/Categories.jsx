@@ -64,33 +64,33 @@ const Categories = () => {
       }}
       modules={[Pagination]}
       className="mySwiper">
-        <SwiperSlide className="mb-10"> <div onClick={()=>handleCategory("plants")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]	 ">
+        <SwiperSlide className="mb-10"> <div onClick={()=>handleCategory("Plants and Seeds")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]	 ">
           <img src={plants}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
           <h3  className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Plants & Seeds</h3>
         </div></SwiperSlide>
-        <SwiperSlide> <div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+        <SwiperSlide> <div onClick={()=>handleCategory("Birds")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
           <img src={birds}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
-          <h3 onClick={()=>handleCategory("birds")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Birds</h3>
+          <h3  className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Birds</h3>
         </div></SwiperSlide>
-        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+        <SwiperSlide><div onClick={()=>handleCategory("Fish")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
           <img src={fish}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
-          <h3 onClick={()=>handleCategory("fish")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Fish</h3>
+          <h3  className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Fish</h3>
         </div></SwiperSlide>
-        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px] ">
+        <SwiperSlide><div  onClick={()=>handleCategory("Animals")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px] ">
           <img src={pets}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
-          <h3 onClick={()=>handleCategory("animals")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Animals</h3>
+          <h3 className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Animals</h3>
         </div></SwiperSlide>
-        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+        <SwiperSlide><div onClick={()=>handleCategory("Foods")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
           <img src={food}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
-          <h3 onClick={()=>handleCategory("food")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Food</h3>
+          <h3  className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Food</h3>
         </div></SwiperSlide>
-        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+        <SwiperSlide><div onClick={()=>handleCategory("Medicine")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
           <img src={medicine}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700" alt="" />
-          <h3 onClick={()=>handleCategory("medicine")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Medicine</h3>
+          <h3  className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Medicine</h3>
         </div></SwiperSlide>
-        <SwiperSlide><div className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
+        <SwiperSlide><div  onClick={()=>handleCategory("Tools")} className="text-center border-[#6bb42f] hover:border-b-2 w-[150px]">
           <img src={tools}  className="rounded-full shadow-xl  border-2 border-black p-2 hover:border-[#6bb42f] hover:transform hover:-scale-x-100 duration-700 	" alt="" />
-          <h3 onClick={()=>handleCategory("tools")} className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Tools</h3>
+          <h3  className="mt-2 text-lg font-bold hover:text-[#6bb42f] " >Tools</h3>
         </div></SwiperSlide>
         
        

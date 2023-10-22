@@ -26,7 +26,7 @@ const AddProduct = () => {
     if (category === 'Animals') {
       setSubcategories(['Cat', 'Dog','Squirrel','Rabbit']);
     } else if (category === 'Plants and Seeds') {
-      setSubcategories(['Fruit', 'Flower','Medicine','Indoor Plant','Seeds']);
+      setSubcategories(['Fruit Plants', 'Flower Plants','Medicine Plants','Indoor Plant','Seeds']);
     } 
     else if (category === 'Birds') {
         setSubcategories(['Budgie', 'Chicken','Pigion','Taki / Pea-Cock','Coca Tail']);
@@ -63,11 +63,11 @@ const AddProduct = () => {
           const product = {
             name: data.productName,
             category:data.category,
-            sub_category:data.subcategory,
+            subCategory:data.subcategory,
             seller_name: user?.displayName,
             seller_email: user?.email,
             available_quantity: parseInt(data.available_quantity),
-            price: parseFloat(data.price).toFixed(2),
+            price: parseInt(data.price),
             image: imageData.data.display_url,
           
           };
