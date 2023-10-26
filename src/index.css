@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
   direction: ltr;
-  font-family: 'Jost', sans-serif;
-  -webkit-font-smoothing: antialiased;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
 }
 
 .swiper-pagination-bullet-active{

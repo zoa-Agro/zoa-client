@@ -47,7 +47,7 @@ const ProductCard = ({ products }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-center  ">
       {products.map((product) => (
         <div className=" h-fit group border">
           <div className="relative overflow-hidden">

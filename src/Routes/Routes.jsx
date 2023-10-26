@@ -10,6 +10,7 @@ import ManageProducts from '../Pages/Dashboard/ManageProducts/ManageProducts'
 import SellerHome from "../Pages/Dashboard/SellerHome/SellerHome";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element:<Shop />,
+      },
+      {
+        path: "/about",
+        element:<AboutUs />,
       },
       {
         path: "/login",
