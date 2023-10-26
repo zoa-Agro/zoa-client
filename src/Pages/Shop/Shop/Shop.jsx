@@ -5,7 +5,6 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import ModalComponent from "../../Home/NewArrivals/ModalComponent";
 import ShopBanner from "./ShopBanner";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -15,7 +14,6 @@ import { Spinner } from "react-spinners-css";
 const Shop = () => {
   const [axiosSecure]=useAxiosSecure()
   const [loading, setLoading] = useState(true);
-  const [modalProduct, setModalProduct] = useState(null);
   const [category, setCategory] = useState(null);
   const [subCategory, setSubCategory] = useState(null);
   const location = useLocation();
@@ -73,10 +71,7 @@ const Shop = () => {
       refetch()
     }
   };
-  const modalOpening = (id) => {
-    setModalProduct(id);
-    document.getElementById("my_modal_5").showModal();
-  };
+
 
   return (
     <div className="bg-base-200">
@@ -450,10 +445,7 @@ const Shop = () => {
               </div> :<ProductCard products={products}/>}
          
             </div>
-            <div>
-              {/* modal for quick view */}
-              <ModalComponent modalProduct={modalProduct} loading={loading} />
-            </div>
+           
           </div>
         </div>
       </div>

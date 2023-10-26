@@ -4,9 +4,29 @@ import {RxDashboard} from 'react-icons/rx'
 import logo from '../../assets/images/logo.png'
 import { Link } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
+import useCartData from '../../hooks/useCartData';
+import { useCart } from '../../Providers/CartProvider';
+import { getShoppingCart } from '../../utilities/LocalStorage';
+import { useEffect, useState } from 'react';
+
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const { state } = useCart();
+  const [cartQuantity, setCartQuantity] = useState(0);
+
+  useEffect(() => {
+    const storedCart = getShoppingCart();
+    if (storedCart) {
+      let cartQuantity1 = 0;
+      for (const id in storedCart) {
+        cartQuantity1 = cartQuantity1 + storedCart[id];
+      }
+      setCartQuantity(cartQuantity1);
+    } else if (state) {
+      setCartQuantity(state.cart[state.cart.length - 1]);
+    }
+  }, [state]);
 
   const navItems = (
     <>
@@ -101,7 +121,7 @@ const Navbar = () => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <span className="badge badge-sm indicator-item bg-[#6bb42f] text-white border-none">8</span>
+              <span className="badge badge-sm indicator-item bg-[#6bb42f] text-white border-none">{cartQuantity}</span>
             </div>
           </label>
           <div
