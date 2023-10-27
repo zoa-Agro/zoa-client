@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineHeart,
-  AiOutlineSearch,
-} from "react-icons/ai";
-import { TbCurrencyTaka } from "react-icons/tb";
 import "react-tabs/style/react-tabs.css";
 import ProductCard from "../../Shop/Shop/ProductCard";
 
@@ -14,14 +8,17 @@ const NewArrivals = () => {
   const [plants, setPlants] = useState([]);
   const [pets, setPets] = useState([]);
   const [modalProduct, setModalProduct] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
   const handleDataLoad = (category) => {
     useEffect(() => {
       if (category === "plants") {
+        setActiveTab(0)
         fetch("plants.json")
           .then((res) => res.json())
           .then((data) => setPlants(data));
       }
       if (category === "animals") {
+        setActiveTab(3)
         fetch("pets.json")
           .then((res) => res.json())
           .then((data) => setPets(data));
@@ -33,7 +30,8 @@ const NewArrivals = () => {
     document.getElementById("my_modal_5").showModal();
   };
   return (
-    <div className="w-11/12 mx-auto md:w-10/12 mt-20">
+    
+    <div className="w-11/12 mx-auto md:w-10/12 mt-20 ">
       <h2 className="text-center font-medium text-3xl  md:text-4xl mb-10">
         <span className="text-[#6bb42f] font-extrabold text-3xl md:text-5xl">
           |
@@ -45,7 +43,7 @@ const NewArrivals = () => {
       </h2>
 
       <Tabs className="text-center text-lg font-semibold">
-        <TabList>
+        <TabList className="mb-10" >
           <Tab onClick={handleDataLoad("plants")}>Plants & Seeds</Tab>
           <Tab onClick={handleDataLoad("birds")}>Birds</Tab>
           <Tab onClick={handleDataLoad("fish")}>Fish</Tab>

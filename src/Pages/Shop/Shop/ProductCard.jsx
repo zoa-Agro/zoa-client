@@ -47,12 +47,12 @@ const ProductCard = ({ products }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-center  ">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-10 ">
       {products.map((product) => (
-        <div className=" h-fit group border">
+        <div className=" h-fit group border shadow rounded-xl">
           <div className="relative overflow-hidden">
             <img
-              className="h-64 w-full object-cover "
+              className="h-64 w-full object-cover rounded-t-xl"
               src={product?.image}
               alt=""
             />
@@ -90,15 +90,15 @@ const ProductCard = ({ products }) => {
               onSubmit={(event) => handleCartQuantity(event, product)}
               action=""
             >
-              <div className="flex justify-center  w-3/4 mx-auto   ">
+              <div className="flex justify-center  w-3/4 mx-auto    ">
                 <input
-                  className="w-1/4 ps-4 bg-base-200 text-black ms-0 font-medium rounded-l-3xl "
+                  className="w-10 ps-3  bg-base-200 text-black ms-0 font-medium rounded-l-3xl "
                   defaultValue={1}
                   type="number"
                   name="quantity"
                   id=""
                 />
-                <button className="rounded-r-3xl text-white text-sm  font-medium bg-[#6bb42f] p-3 py-1 flex items-center gap-1 cursor-pointer">
+                <button className="rounded-r-3xl text-white  text-[18px]  font-medium bg-[#6bb42f] py-1 px-3 flex items-center gap-1 cursor-pointer">
                   {" "}
                   <AiOutlineShoppingCart />
                   Add to Cart

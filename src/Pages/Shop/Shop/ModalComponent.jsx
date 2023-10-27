@@ -4,10 +4,10 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 const ModalComponent = ({modalProduct}) => {
     console.log(modalProduct);
     return (
-        <dialog id="my_modal_5" className="modal  ">
+        <dialog id="my_modal_5" className="modal  text-start">
   <div className="modal-box w-11/12 max-w-5xl">
     <div className='md:flex items-center gap-10'> 
-    <img src={modalProduct?.image} className='md:w-[400px]' alt="" />
+    <img src={modalProduct?.image} className='md:w-[400px] h-[400px] object-cover object-center' alt="" />
     <div>
     <h2 className='text-2xl font-bold'>{modalProduct?.name}</h2>
     <del className='text-sm text-red-500'>Tk{(modalProduct?.price+5).toFixed(2)}</del>

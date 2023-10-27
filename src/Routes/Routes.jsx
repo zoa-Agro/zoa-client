@@ -11,6 +11,8 @@ import SellerHome from "../Pages/Dashboard/SellerHome/SellerHome";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import ContactUs from "../Pages/ContactUs/ContactUs";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +28,16 @@ const router = createBrowserRouter([
         element:<Shop />,
       },
       {
+        path: "/blogs",
+        element:<Blogs />,
+      },
+      {
         path: "/about",
         element:<AboutUs />,
+      },
+      {
+        path: "/contact",
+        element:<ContactUs />,
       },
       {
         path: "/login",

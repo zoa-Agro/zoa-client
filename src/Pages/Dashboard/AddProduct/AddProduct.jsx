@@ -69,6 +69,7 @@ const AddProduct = () => {
             available_quantity: parseInt(data.available_quantity),
             price: parseInt(data.price),
             image: imageData.data.display_url,
+            description: data.description
           
           };
           console.log(data.category);
@@ -303,7 +304,7 @@ const AddProduct = () => {
           <textarea
             type="textarea"
             name="description"
-            className="input input-bordered h-20"
+            className="input input-bordered h-32 pt-2"
             placeholder="Write about product"
             {...register("description")}
           />
@@ -319,6 +320,7 @@ const AddProduct = () => {
               type="number"
               placeholder="Enter available quantity"
               className="input input-bordered "
+              min={0}
               {...register("available_quantity", { required: true })}
             />
             {errors.available_quantity?.type === "required" && (
@@ -335,6 +337,7 @@ const AddProduct = () => {
               type="number"
               placeholder="Enter product price"
               className="input input-bordered"
+              min={0}
               {...register("price", { required: true })}
             />
             {errors.price?.type === "required" && (

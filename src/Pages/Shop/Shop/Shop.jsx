@@ -10,12 +10,14 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "./ProductCard";
 import { Spinner } from "react-spinners-css";
+import PageBanner from "../../../Shared/PageBanner/PageBanner";
 
 const Shop = () => {
   const [axiosSecure]=useAxiosSecure()
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState(null);
   const [subCategory, setSubCategory] = useState(null);
+  const [sortDirection , setSortDirection ] = useState('low to high');
   const location = useLocation();
 
   useEffect(() => {
@@ -24,10 +26,10 @@ const Shop = () => {
     console.log(categoryName)
   }, []);
   const { data: products = [], refetch } = useQuery({
-    queryKey: ["all-products",setLoading,category,subCategory,setSubCategory],
+    queryKey: ["all-products",setLoading,category,subCategory,setSubCategory,sortDirection],
     queryFn: async () => {
 
-      let url = `/all-products?category=${category}`;
+      let url = `/all-products?category=${category}&sortDirection=${sortDirection}`;
 
     if (subCategory) {
       url += `&subCategory=${subCategory}`;
@@ -71,13 +73,18 @@ const Shop = () => {
       refetch()
     }
   };
+  const handleProductByPrice =(event)=>{
+    console.log(event.target.value);
+    setSortDirection(event.target.value);
+  }
 
 
   return (
-    <div className="bg-base-200">
+   
       <div className="w-11/12 md:w-10/12 mx-auto ">
         <div className="h-12"></div>
-        <div className="p-5 shadow mb-10 bg-white">
+        <PageBanner name={category} previousPage="Home" currentPage="Shop"/>
+        {/* <div className="p-5 shadow-xl mb-10 bg-white">
           <img
           className="object-cover object-center w-full h-52"
             src="https://img.freepik.com/free-photo/elevated-view-yellow-goldenrods-solidago-gigantea-limonium-flowers-wooden-backdrop_23-2148066403.jpg?w=900&t=st=1698314898~exp=1698315498~hmac=f583fd34c015d7ac8da7851020eda666e5943a0964402bb3d8e0e1fb3c7571d0"
@@ -101,11 +108,11 @@ const Shop = () => {
             </h3>
             <h4 className="text-lg font-semibold">Shop / Home</h4>
           </div>
-        </div>
+        </div> */}
 
         <div className="md:grid grid-cols-5 mx-auto">
           <div className="col-span-1   ">
-            <div className="shadow p-5 bg-white">
+            <div className="shadow p-5 bg-white border">
               <h3 className="uppercase font-bold text-xl border-b-2  mb-5 ">
                 Filter By
               </h3>
@@ -414,28 +421,28 @@ const Shop = () => {
                 <label className="label">
                   <span className="text-lg font-bold">Price</span>
                 </label>
-                <select className="select select-bordered">
+                <select onChange={handleProductByPrice} className="select select-bordered">
                   <option disabled selected>
                     Filter by price
                   </option>
-                  <option>Low to High</option>
-                  <option>High to Low</option>
+                  <option value="low to high">Low to High</option>
+                  <option value="high to low">High to Low</option>
                 </select>
               </div>
             </div>
           </div>
           <div className="col-span-4 md:ms-10">
             {/* <ShopBanner /> */}
-            <div className="bg-white shadow p-3 mb-8 flex justify-between items-center ">
+            <div className="bg-white shadow border p-3 mb-8 flex justify-between items-center ">
               <h2>There are 122 product's. </h2>
               <div className="flex items-center gap-2 ">
                 <span className="text-lg"> Sort by: </span>
-                <select className="select select-bordered">
+                <select onChange={handleProductByPrice}  className="select select-bordered">
                   <option disabled selected>
                     Choose
                   </option>
-                  <option>Price, low to high</option>
-                  <option>Price, high to low</option>
+                  <option value="low to high">Price, low to high</option>
+                  <option value="high to low">Price, high to low</option>
                 </select>
               </div>
             </div>
@@ -449,7 +456,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

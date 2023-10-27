@@ -43,7 +43,7 @@ const Navbar = () => {
         <Link to="/about">About Us</Link>
       </li>
       <li>
-        <Link to="/">Contact Us</Link>
+        <Link to="/contact">Contact Us</Link>
       </li>
     </>
   
@@ -64,7 +64,7 @@ const Navbar = () => {
   return (
     <div
       className="navbar 
-   md:px-[8%]"
+   md:px-[8%] border-b "
     >
       <div className="navbar-start">
         <div className="dropdown">

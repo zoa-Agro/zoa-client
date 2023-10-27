@@ -4,21 +4,26 @@
 
 * {
   direction: ltr;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
-.swiper-pagination-bullet-active{
- background-color: #6bb42f;
+.swiper-pagination-bullet-active {
+  background-color: #6bb42f;
 }
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.react-tabs__tab--selected {
+  color: #6bb42f !important;
+  border: 0 !important;
+  font-weight: bold !important;
+  border-bottom: 2px solid #6bb42f !important;
+
 }
