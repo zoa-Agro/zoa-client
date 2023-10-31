@@ -5,6 +5,7 @@ const Footer = () => {
       <footer className="footer py-10 bg-base-200 text-base-content p-[8%] border-t">
         <aside>
          <img className='w-32' src={logo} alt="" />
+         <p className='text-[#6bb42f] font-semibold -mt-2'>Zone of Agriculture</p>
           <p>
            ZOA Agro ltd.
             <br />

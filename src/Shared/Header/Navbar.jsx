@@ -5,28 +5,29 @@ import logo from '../../assets/images/logo.png'
 import { Link } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
 import useCartData from '../../hooks/useCartData';
-import { useCart } from '../../Providers/CartProvider';
-import { getShoppingCart } from '../../utilities/LocalStorage';
-import { useEffect, useState } from 'react';
+import { deleteShoppingCart, getShoppingCart } from '../../utilities/LocalStorage';
+import { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../../Providers/CartProvider';
+import { FaTrashAlt } from 'react-icons/fa';
 
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  const { state } = useCart();
-  const [cartQuantity, setCartQuantity] = useState(0);
-
-  useEffect(() => {
-    const storedCart = getShoppingCart();
-    if (storedCart) {
-      let cartQuantity1 = 0;
-      for (const id in storedCart) {
-        cartQuantity1 = cartQuantity1 + storedCart[id];
-      }
-      setCartQuantity(cartQuantity1);
-    } else if (state) {
-      setCartQuantity(state.cart[state.cart.length - 1]);
-    }
-  }, [state]);
+  const {addToCart,cart} = useContext(CartContext)
+  console.log(cart);
+  let total = 0;
+  let totalShipping = 0;
+  let quantity = 0;
+  for (const product of cart) {
+    quantity = product.quantity + quantity;
+    total = total + product.price * product.quantity;
+    
+  }
+  const handleClearCart = () => {
+    addToCart([]);
+    deleteShoppingCart();
+  };
+     
 
   const navItems = (
     <>
@@ -92,7 +93,9 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="">
-        <img className='w-32' src={logo} alt="" />
+        <img className='w-20 md:w-32' src={logo} alt="" />
+        <p className='text-xs text-[#6bb42f] font-bold text-center hidden md:block '>Zone Of Agriculture</p>
+
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -121,9 +124,21 @@ const Navbar = () => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <span className="badge badge-sm indicator-item bg-[#6bb42f] text-white border-none">{cartQuantity}</span>
+              <span className="badge badge-sm indicator-item bg-[#6bb42f] text-white border-none">{quantity}</span>
+              
             </div>
+
           </label>
+          <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-64 bg-base-100 shadow">
+        <div className="card-body">
+          <span className="font-bold text-lg">Selected Items: {quantity}</span>
+          <span className="text-lg ">Total: <span className='text-[#6bb42f]'>{total} Tk</span></span>
+          <div className="card-actions">
+            <button onClick={handleClearCart} className="btn btn-outline border-red-600 text-red-600 btn-block">Clear Cart <FaTrashAlt/></button>
+            <button className="btn bg-[#6bb42f] border-[#6bb42f] btn-block">Review Order </button>
+          </div>
+        </div>
+      </div>
           
         </div>
         {user ? (

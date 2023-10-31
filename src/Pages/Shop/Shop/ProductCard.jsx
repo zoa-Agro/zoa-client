@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   AiOutlineHeart,
   AiOutlineSearch,
@@ -9,34 +9,49 @@ import {
   addToLocalStorage,
   getShoppingCart,
 } from "../../../utilities/LocalStorage";
-import useCartData from "../../../hooks/useCartData";
+import { CartContext } from "../../../Providers/CartProvider";
 
 const ProductCard = ({ products }) => {
   const [modalProduct, setModalProduct] = useState(null);
 
-  const { cart, addToCart } = useCartData();
- 
-  const handleCartQuantity = (event, product) => {
-    event.preventDefault();
-    console.log(parseInt(event.target.quantity.value), product);
-    const productQuantity = parseInt(event.target.quantity.value);
-   
+  const [cart, setCart] = useState([]);
+  const { addToCart } = useContext(CartContext);
+  useEffect(() => {
+    addToCart(cart);
+  }, [cart]);
+  useEffect(() => {
     const storedCart = getShoppingCart();
-    let cartQuantity = productQuantity;
-    if (storedCart)
-    {
-      
-      for (const id in storedCart) {
-        cartQuantity = cartQuantity + storedCart[id] ;
+    const savedCart = [];
+    // step 1: get id of the addedProduct
+    for (const id in storedCart) {
+      // step 2: get product from products state by using id
+      const addedProduct = products.find((product) => product._id === id);
+      if (addedProduct) {
+        // step 3: add quantity
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        // step 4: add the added product to the saved cart
+        savedCart.push(addedProduct);
       }
-     
+      // console.log('added Product', addedProduct)
     }
-    addToCart(cartQuantity);
-
-   
-  
-
-    addToLocalStorage(product._id, productQuantity);
+    // step 5: set the cart
+    setCart(savedCart);
+  }, [products]);
+  console.log(cart);
+  const handleAddToCart = (product) => {
+    let newCart = [];
+    const exists = cart.find((pd) => pd._id === product._id);
+    if (!exists) {
+      product.quantity = 1;
+      newCart = [...cart, product];
+    } else {
+      exists.quantity = exists.quantity + 1;
+      const remaining = cart.filter((pd) => pd._id !== product._id);
+      newCart = [...remaining, exists];
+    }
+    setCart(newCart);
+    addToLocalStorage(product._id);
   };
   const modalOpening = (product) => {
     setModalProduct(product);
@@ -57,7 +72,7 @@ const ProductCard = ({ products }) => {
               alt=""
             />
             <div className="absolute flex flex-col gap-3   items-center right-0  top-2  group-hover:right-3 opacity-0 group-hover:opacity-100 transition-all duration-2000">
-              <div
+              <div   onClick={() => handleAddToCart(product)}
                 className=" text-gray-800 text-xl p-3 bg-gray-300 bg-opacity-40  hover:bg-[#6bb42f] hover:text-white tooltip tooltip-left"
                 data-tip="Add to Cart"
               >
@@ -86,30 +101,33 @@ const ProductCard = ({ products }) => {
             Tk {product?.price}
           </p>
           <div className="my-5">
-            <form
-              onSubmit={(event) => handleCartQuantity(event, product)}
-              action=""
+            <div
+            // onSubmit={(event) => handleCartQuantity(event, product)}
+            // action=""
             >
               <div className="flex justify-center  w-3/4 mx-auto    ">
-                <input
+                {/* <input
                   className="w-10 ps-3  bg-base-200 text-black ms-0 font-medium rounded-l-3xl "
                   defaultValue={1}
                   type="number"
                   name="quantity"
                   id=""
-                />
-                <button className="rounded-r-3xl text-white  text-[18px]  font-medium bg-[#6bb42f] py-1 px-3 flex items-center gap-1 cursor-pointer">
+                /> */}
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className="rounded-3xl text-white  text-[18px]  font-medium bg-[#6bb42f] py-1 px-3 flex items-center gap-1 cursor-pointer"
+                >
                   {" "}
                   <AiOutlineShoppingCart />
                   Add to Cart
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       ))}
       <div>
-        <ModalComponent modalProduct={modalProduct} />
+        <ModalComponent modalProduct={modalProduct}  handleAddToCart={handleAddToCart}/>
       </div>
     </div>
   );

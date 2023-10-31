@@ -45,8 +45,8 @@ const Login = () => {
         <div className="text-center">
           <img className="" src={loginBanner} alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl border border-green-400">
-          <form onSubmit={handleSubmit(handleLogin)} className="card-body">
+        <div className="card flex-shrink-0 w-full card-body max-w-lg shadow-2xl border border-green-400">
+          <form onSubmit={handleSubmit(handleLogin)}>
             <h2 className="text-center font-semibold text-green-400 text-3xl">Login</h2>
             <div className="form-control">
               <label className="label">
@@ -108,8 +108,9 @@ const Login = () => {
                 Register
               </Link>
             </p>
-            <SocialLogin setError={setError}></SocialLogin>
+        
           </form>
+          <SocialLogin setError={setError}></SocialLogin>
         </div>
       </div>
     </div>
