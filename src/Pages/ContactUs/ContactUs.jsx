@@ -24,8 +24,8 @@ const ContactUs = () => {
           </p>
         </div>
       </div>
-      <div className="grid md:grid-cols-3 border-t border-b  gap-8 md:gap-20 my-8 md:mt-20 p-10">
-        <div className="flex gap-2 items-center">
+      <div className="grid md:grid-cols-3 mx-auto border-t border-b  gap-8 md:gap-20 my-8 md:mt-20 p-10">
+        <div className="flex gap-2 items-center md:border-r-2">
           <div className="text-8xl text-[#6bb42f] opacity-60">
             <AiOutlinePhone />
           </div>
@@ -35,7 +35,7 @@ const ContactUs = () => {
             <p className="text-gray-400"> WhatsApp: (+880) 1779021567</p>
           </div>
         </div>
-        <div className="flex gap-2 items-center   ">
+        <div className="flex gap-2 items-center   md:border-r-2">
           <div className="text-8xl text-[#6bb42f] opacity-60">
             <AiOutlineHome />
           </div>
@@ -60,12 +60,12 @@ const ContactUs = () => {
         className="w-full h-[250px] md:h-[400px]"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.427783826926!2d90.3085872737561!3d23.87444488400583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c334cd43907b%3A0x8e106319ee52d8a2!2sAshulia%20Model%20Town.!5e0!3m2!1sbn!2sbd!4v1698431611188!5m2!1sbn!2sbd"
         arial-hidden="true"
-        allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
       <div className="w-11/12 md:w-1/2 mx-auto my-20 ">
-        <h1 className="text-xl md:text-4xl font-bold mb-5 text-center">Contact Us Now</h1>
+        <h1 className="text-xl md:text-4xl font-bold mb-5 text-center">
+          Contact Us Now
+        </h1>
         <p className="text-center my-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
           veniam.
@@ -83,14 +83,17 @@ const ContactUs = () => {
                 placeholder="Your Email Address"
                 className="input input-bordered rounded-none h-16 w-full bg-base-200"
               />
-              
             </div>
             <textarea
-                type="textarea"
-                placeholder="Your Message"
-                className="input input-bordered rounded-none w-full h-44 pt-2 bg-base-200"
-              />
-              <input type="submit" value="Send Message"  className="btn  w-1/2 mx-auto mt-10 bg-[#6bb42f]"/>
+              type="textarea"
+              placeholder="Your Message"
+              className="input input-bordered rounded-none w-full h-44 pt-2 bg-base-200"
+            />
+            <input
+              type="submit"
+              value="Send Message"
+              className="btn  w-1/2 mx-auto mt-10 bg-[#6bb42f]"
+            />
           </div>
         </form>
       </div>

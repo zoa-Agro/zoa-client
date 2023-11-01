@@ -13,11 +13,16 @@ import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Blogs from "../Pages/Blogs/Blogs";
+import Cart from "../Pages/Order/Cart";
+import useProducts from "../hooks/useProducts";
+import cartProductsLoader from "../loaders/cartProductsLoader";
+import ProceedToCheckout from "../Pages/Order/ProceedToCheckout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    loader:cartProductsLoader,
     children: [
       {
         path: "/",
@@ -38,6 +43,18 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element:<ContactUs />,
+      },
+      {
+        path: "/cart",
+        element:<Cart />,
+        loader: cartProductsLoader
+       
+      },
+      {
+        path: "/checkout",
+        element:<ProceedToCheckout />,
+        loader: cartProductsLoader
+       
       },
       {
         path: "/login",

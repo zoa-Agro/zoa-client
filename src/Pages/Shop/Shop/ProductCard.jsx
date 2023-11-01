@@ -10,22 +10,23 @@ import {
   getShoppingCart,
 } from "../../../utilities/LocalStorage";
 import { CartContext } from "../../../Providers/CartProvider";
+import useProducts from "../../../hooks/useProducts";
 
 const ProductCard = ({ products }) => {
   const [modalProduct, setModalProduct] = useState(null);
-
-  const [cart, setCart] = useState([]);
-  const { addToCart } = useContext(CartContext);
-  useEffect(() => {
-    addToCart(cart);
-  }, [cart]);
+  const [productsData]=useProducts();
+  // const [cart, setCart] = useState([]);
+  const {cart, addToCart } = useContext(CartContext);
+  // useEffect(() => {
+  //   addToCart(cart);
+  // }, [cart]);
   useEffect(() => {
     const storedCart = getShoppingCart();
     const savedCart = [];
     // step 1: get id of the addedProduct
     for (const id in storedCart) {
       // step 2: get product from products state by using id
-      const addedProduct = products.find((product) => product._id === id);
+      const addedProduct = productsData.find((product) => product._id === id);
       if (addedProduct) {
         // step 3: add quantity
         const quantity = storedCart[id];
@@ -36,8 +37,8 @@ const ProductCard = ({ products }) => {
       // console.log('added Product', addedProduct)
     }
     // step 5: set the cart
-    setCart(savedCart);
-  }, [products]);
+    addToCart(savedCart);
+  }, [productsData]);
   console.log(cart);
   const handleAddToCart = (product) => {
     let newCart = [];
@@ -50,7 +51,7 @@ const ProductCard = ({ products }) => {
       const remaining = cart.filter((pd) => pd._id !== product._id);
       newCart = [...remaining, exists];
     }
-    setCart(newCart);
+    addToCart(newCart);
     addToLocalStorage(product._id);
   };
   const modalOpening = (product) => {

@@ -1,38 +1,44 @@
-import {AiOutlineHeart} from 'react-icons/ai'
-import {FiLogOut} from 'react-icons/fi'
-import {RxDashboard} from 'react-icons/rx'
-import logo from '../../assets/images/logo.png'
-import { Link } from 'react-router-dom';
+import { AiOutlineHeart } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
+import { RxDashboard } from "react-icons/rx";
+import logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import useCartData from '../../hooks/useCartData';
-import { deleteShoppingCart, getShoppingCart } from '../../utilities/LocalStorage';
-import { useContext, useEffect, useState } from 'react';
-import { CartContext } from '../../Providers/CartProvider';
-import { FaTrashAlt } from 'react-icons/fa';
+import {
+  deleteShoppingCart,
+} from "../../utilities/LocalStorage";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../Providers/CartProvider";
+import { FaTrashAlt } from "react-icons/fa";
 
-
-const Navbar = () => {
+const Navbar = ({ products }) => {
   const { user, logOut } = useAuth();
-  const {addToCart,cart} = useContext(CartContext)
-  console.log(cart);
+  const { addToCart, cart } = useContext(CartContext);
+  const [cartData, setCartData] = useState(cart);
+  useEffect(() => {
+    if (cart.length == 0) {
+      setCartData(products);
+    } else {
+      setCartData(cart);
+    }
+  }, [products, cart]);
+  console.log(cartData);
+
   let total = 0;
-  let totalShipping = 0;
   let quantity = 0;
-  for (const product of cart) {
+  for (const product of cartData) {
     quantity = product.quantity + quantity;
     total = total + product.price * product.quantity;
-    
   }
   const handleClearCart = () => {
     addToCart([]);
     deleteShoppingCart();
   };
-     
 
   const navItems = (
     <>
       <li>
-        <Link to='/'>Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
         <Link to="/shop">Shop</Link>
@@ -47,21 +53,26 @@ const Navbar = () => {
         <Link to="/contact">Contact Us</Link>
       </li>
     </>
-  
   );
-  const profileDropdown=<><div
-  tabIndex={1}
-  className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-300 shadow"
->
-  <div className="card-body">
-   
-    <div className="card-actions">
-      
-      <Link to="/dashboard" className="btn btn-success btn-block "><RxDashboard/> Dashboard</Link>
-      <button onClick={logOut} className="btn btn-success btn-block"><FiLogOut/> Logout</button>
-    </div>
-  </div>
-</div></>
+  const profileDropdown = (
+    <>
+      <div
+        tabIndex={1}
+        className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-300 shadow"
+      >
+        <div className="card-body">
+          <div className="card-actions">
+            <Link to="/dashboard" className="btn btn-success btn-block ">
+              <RxDashboard /> Dashboard
+            </Link>
+            <button onClick={logOut} className="btn btn-success btn-block">
+              <FiLogOut /> Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
   return (
     <div
       className="navbar 
@@ -93,21 +104,23 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="">
-        <img className='w-20 md:w-32' src={logo} alt="" />
-        <p className='text-xs text-[#6bb42f] font-bold text-center hidden md:block '>Zone Of Agriculture</p>
-
+          <img className="w-20 md:w-32" src={logo} alt="" />
+          <p className="text-xs text-[#6bb42f] font-bold text-center hidden md:block ">
+            Zone Of Agriculture
+          </p>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-lg">{navItems}</ul>
       </div>
       <div className="navbar-end gap-4">
-      <div className='text-xl relative'>
-            <AiOutlineHeart/>
-              <span className="badge badge-sm absolute -top-2 left-3 indicator-item bg-[#6bb42f] text-white border-none">7</span>
-          </div>
+        {/* <div className="text-xl relative">
+          <AiOutlineHeart />
+          <span className="badge badge-sm absolute -top-2 left-3 indicator-item bg-[#6bb42f] text-white border-none">
+            7
+          </span>
+        </div> */}
         <div className="dropdown dropdown-end">
-          
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -124,27 +137,44 @@ const Navbar = () => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <span className="badge badge-sm indicator-item bg-[#6bb42f] text-white border-none">{quantity}</span>
-              
+              <span className="badge badge-sm indicator-item bg-[#6bb42f] text-white border-none">
+                {quantity}
+              </span>
             </div>
-
           </label>
-          <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-64 bg-base-100 shadow">
-        <div className="card-body">
-          <span className="font-bold text-lg">Selected Items: {quantity}</span>
-          <span className="text-lg ">Total: <span className='text-[#6bb42f]'>{total} Tk</span></span>
-          <div className="card-actions">
-            <button onClick={handleClearCart} className="btn btn-outline border-red-600 text-red-600 btn-block">Clear Cart <FaTrashAlt/></button>
-            <button className="btn bg-[#6bb42f] border-[#6bb42f] btn-block">Review Order </button>
+          <div
+            tabIndex={0}
+            className="mt-3 z-[1] card card-compact dropdown-content w-64 bg-base-100 shadow"
+          >
+            <div className="card-body">
+              <span className="font-bold text-lg">
+                Selected Items: {quantity}
+              </span>
+              <span className="text-lg ">
+                Total: <span className="text-[#6bb42f]">{total} Tk</span>
+              </span>
+              <div className="card-actions">
+                <button
+                  onClick={handleClearCart}
+                  className="btn btn-outline border-red-600 text-red-600 btn-block"
+                >
+                  Clear Cart <FaTrashAlt />
+                </button>
+                <Link
+                  to="/cart"
+                  className="btn bg-[#6bb42f] border-[#6bb42f] btn-block"
+                >
+                  Review Order{" "}
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-          
         </div>
         {user ? (
           user?.photoURL ? (
-            <div className='dropdown dropdown-end'>
-              <img tabIndex={1}
+            <div className="dropdown dropdown-end">
+              <img
+                tabIndex={1}
                 className="w-10 h-10 rounded-full cursor-pointer"
                 data-toggle="tooltip"
                 title={user?.displayName}
@@ -152,12 +182,12 @@ const Navbar = () => {
                 src={`${user?.photoURL}`}
                 alt=""
               />
-               {profileDropdown}
-             
+              {profileDropdown}
             </div>
           ) : (
-            <div className='dropdown dropdown-end'>
-              <img tabIndex={1}
+            <div className="dropdown dropdown-end">
+              <img
+                tabIndex={1}
                 className="w-10 h-10 rounded-full cursor-pointer"
                 data-toggle="tooltip"
                 title={user?.displayName}
@@ -176,10 +206,8 @@ const Navbar = () => {
             >
               Login
             </Link>
-           
           </>
         )}
-        
       </div>
     </div>
   );
