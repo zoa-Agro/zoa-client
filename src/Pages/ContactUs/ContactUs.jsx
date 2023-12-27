@@ -5,13 +5,13 @@ import { AiOutlineHome, AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 const ContactUs = () => {
   return (
     <div>
-      <div className="w-11/12 md:w-10/12 mx-auto">
+      <div className="w-11/12 md:w-10/12 mx-auto mt-10">
         <PageBanner
           name="Contact Us"
           previousPage="Home"
           currentPage="Contact Us"
         />
-        <div className="my-10 md:my-20  text-center md:w-[80%] mx-auto">
+        <div className="my-10 md:my-20  text-center md:w-[80%] mx-auto ">
           <h1 className="text-xl md:text-4xl font-bold mb-5">
             Keep in touch with us
           </h1>
@@ -24,7 +24,7 @@ const ContactUs = () => {
           </p>
         </div>
       </div>
-      <div className="grid md:grid-cols-3 mx-auto border-t border-b  gap-8 md:gap-20 my-8 md:mt-20 p-10">
+      <div className="grid md:grid-cols-3 w-11/12 md:w-10/12 mx-auto border-t border-b  gap-8 md:gap-20 my-8 md:mt-20 p-10">
         <div className="flex gap-2 items-center md:border-r-2">
           <div className="text-8xl text-[#6bb42f] opacity-60">
             <AiOutlinePhone />

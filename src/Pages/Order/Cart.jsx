@@ -10,7 +10,6 @@ const Cart = () => {
   const products =useLoaderData()
   
   const [cart, setCart] = useState(products);
-  console.log(cart);
   let total = 0;
   let quantity = 0;
   for (const product of cart) {
@@ -42,7 +41,7 @@ const Cart = () => {
 
                 <div className=" ">
                   <h2 className="card-title">{product?.name}</h2>
-                  <p>Price: {product?.price} Tk</p>
+                  <p>Price: {total} Tk</p>
                   <p>Quantity: {product?.quantity}</p>
                 </div>
               </div>

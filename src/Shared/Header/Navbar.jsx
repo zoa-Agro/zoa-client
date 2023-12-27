@@ -1,8 +1,8 @@
 import { AiOutlineHeart } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { RxDashboard } from "react-icons/rx";
-import logo from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo.jpeg";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import {
   deleteShoppingCart,
@@ -10,11 +10,14 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Providers/CartProvider";
 import { FaTrashAlt } from "react-icons/fa";
+import useSeller from "../../hooks/useSeller";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = ({ products }) => {
   const { user, logOut } = useAuth();
   const { addToCart, cart } = useContext(CartContext);
   const [cartData, setCartData] = useState(cart);
+
   useEffect(() => {
     if (cart.length == 0) {
       setCartData(products);
@@ -22,7 +25,6 @@ const Navbar = ({ products }) => {
       setCartData(cart);
     }
   }, [products, cart]);
-  console.log(cartData);
 
   let total = 0;
   let quantity = 0;
@@ -34,23 +36,22 @@ const Navbar = ({ products }) => {
     addToCart([]);
     deleteShoppingCart();
   };
+ // const link = isAdmin ? '/dashboard/manage-user' :isSeller? '/dashboard/manage-products':'/dashboard/ordered-products';
 
   const navItems = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/shop">Shop</Link>
+        <NavLink to="/shop">Shop</NavLink>
+      </li>
+    
+      <li>
+        <NavLink to="/about">About Us</NavLink>
       </li>
       <li>
-        <Link to="/blogs">Blogs</Link>
-      </li>
-      <li>
-        <Link to="/about">About Us</Link>
-      </li>
-      <li>
-        <Link to="/contact">Contact Us</Link>
+        <NavLink to="/contact">Contact Us</NavLink>
       </li>
     </>
   );
@@ -62,7 +63,7 @@ const Navbar = ({ products }) => {
       >
         <div className="card-body">
           <div className="card-actions">
-            <Link to="/dashboard" className="btn btn-success btn-block ">
+            <Link to={'/dashboard'} className="btn btn-success btn-block ">
               <RxDashboard /> Dashboard
             </Link>
             <button onClick={logOut} className="btn btn-success btn-block">
@@ -103,12 +104,10 @@ const Navbar = ({ products }) => {
             {navItems}
           </ul>
         </div>
-        <a className="">
-          <img className="w-20 md:w-32" src={logo} alt="" />
-          <p className="text-xs text-[#6bb42f] font-bold text-center hidden md:block ">
-            Zone Of Agriculture
-          </p>
-        </a>
+        <Link to='/' className="">
+          <img className="w-20" src={logo} alt="" />
+         
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-lg">{navItems}</ul>

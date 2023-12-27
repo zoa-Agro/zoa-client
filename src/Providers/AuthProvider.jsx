@@ -25,6 +25,11 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+  //login
+  const userLogin = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
   const profileUpdate = (name) => {
     setLoading(true);
     return updateProfile(auth.currentUser, { displayName: name });
@@ -33,11 +38,6 @@ const AuthProvider = ({ children }) => {
     return sendEmailVerification(loggedUser);
   };
 
-  //login
-  const userLogin = (email, password) => {
-    setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
-  };
   //google login
   const provider = new GoogleAuthProvider();
   const googleLogin = () => {
@@ -52,10 +52,10 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-      setUser(loggedUser);  
+      setUser(loggedUser);
       if (loggedUser) {
         axios
-          .post("http://localhost:5000/jwt", {
+          .post("https://zoa-server.vercel.app/jwt", {
             email: loggedUser.email,
           })
           .then((data) => {
@@ -64,6 +64,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         localStorage.removeItem("access-token");
+        
       }
     });
     return () => unsubscribe();

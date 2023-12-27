@@ -7,7 +7,6 @@ const useCartData = () => {
       setCart(data);
      
     }
-console.log(cart);
 
   return { cart, addToCart };
 };

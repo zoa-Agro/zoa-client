@@ -20,6 +20,9 @@ const UpdateModal = ({ uproduct,refetch }) => {
   const isAnyFieldUpdated = isDirty || Object.values(getValues()).some(Boolean);
 
   const onSubmit=(data)=>{
+    data.price= parseInt(data.price,10)
+    data.quantity= parseInt(data.quantity,10)
+    console.log(data);
      axiosSecure.patch(`/update-product/${id}`, { data }).then((res) => { refetch();
       if (res.status === 200) {
         Swal.fire({position: 'top-end',

@@ -2,6 +2,7 @@ import React from "react";
 import promoBanner1 from "../../../assets/images/promobanner1.jpg";
 import promoBanner2 from "../../../assets/images/promobanner2.jpg";
 import promoBanner3 from "../../../assets/images/promobanner3.jpg";
+import { Link } from "react-router-dom";
 
 const PromoBanner = () => {
   return (
@@ -15,7 +16,7 @@ const PromoBanner = () => {
              Get Your Pet
               
             </p>
-            <button className="btn border border-[#6bb42f] hover:border-[#6bb42f] text-white duration-400  bg-[#6bb42f] hover:text-[#6bb42f] ">Shop Now</button>
+            <Link to={'/shop'} className="btn border border-[#6bb42f] hover:border-[#6bb42f] text-white duration-400  bg-[#6bb42f] hover:text-[#6bb42f] ">Shop Now</Link>
           </div>
         </div>
       </div>
@@ -28,7 +29,7 @@ const PromoBanner = () => {
               Buy Plants & Seeds
               
             </p>
-            <button className="btn border border-[#6bb42f] hover:border-[#6bb42f] text-white duration-400  bg-[#6bb42f] hover:text-[#6bb42f]  ">Shop Now</button>
+            <Link to={'/shop'} className="btn border border-[#6bb42f] hover:border-[#6bb42f] text-white duration-400  bg-[#6bb42f] hover:text-[#6bb42f]  ">Shop Now</Link>
           </div>
         </div>
       </div>
@@ -41,7 +42,7 @@ const PromoBanner = () => {
              Purchase Tools 
               
             </p>
-            <button className="btn border border-[#6bb42f] hover:border-[#6bb42f] text-white duration-400  bg-[#6bb42f] hover:text-[#6bb42f] ">Shop Now</button>
+            <Link to={'/shop'} className="btn border border-[#6bb42f] hover:border-[#6bb42f] text-white duration-400  bg-[#6bb42f] hover:text-[#6bb42f] ">Shop Now</Link>
           </div>
         </div>
       </div>

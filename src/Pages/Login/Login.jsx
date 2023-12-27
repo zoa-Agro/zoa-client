@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import loginBanner from "../../assets/images/login.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
@@ -11,17 +11,16 @@ const Login = () => {
   const [visible, setVisible] = useState(false);
   const [error, setError] = useState("");
   const navigate=useNavigate()
-
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
   const handleLogin = (data) => {
-    console.log(data);
     userLogin(data.email, data.password)
       .then((res) => {
-        console.log("successfully");
         // if(!res.user.emailVerified){
         //   logOut()
         //   console.log("please verified your email address");
@@ -30,10 +29,10 @@ const Login = () => {
         //   navigate("/")
           
         // }
-        navigate("/")
+        navigate(from, { replace: true });
 
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => setError(err.message));
   };
   const handleShowPassword = () => {
     setVisible(!visible);

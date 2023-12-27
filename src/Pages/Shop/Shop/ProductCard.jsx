@@ -11,15 +11,23 @@ import {
 } from "../../../utilities/LocalStorage";
 import { CartContext } from "../../../Providers/CartProvider";
 import useProducts from "../../../hooks/useProducts";
+import ReactPaginate from "react-paginate";
 
 const ProductCard = ({ products }) => {
   const [modalProduct, setModalProduct] = useState(null);
+ 
   const [productsData]=useProducts();
-  // const [cart, setCart] = useState([]);
   const {cart, addToCart } = useContext(CartContext);
-  // useEffect(() => {
-  //   addToCart(cart);
-  // }, [cart]);
+  //pagination
+  const [itemOffset, setItemOffset] = useState(0);
+  const [itemsPerPage] = useState(9);
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = products.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(products.length / itemsPerPage);
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % products.length;
+    setItemOffset(newOffset);
+  };
   useEffect(() => {
     const storedCart = getShoppingCart();
     const savedCart = [];
@@ -39,7 +47,6 @@ const ProductCard = ({ products }) => {
     // step 5: set the cart
     addToCart(savedCart);
   }, [productsData]);
-  console.log(cart);
   const handleAddToCart = (product) => {
     let newCart = [];
     const exists = cart.find((pd) => pd._id === product._id);
@@ -63,9 +70,10 @@ const ProductCard = ({ products }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-10 ">
-      {products.map((product) => (
-        <div className=" h-fit group border shadow rounded-xl">
+    <div  >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-10">
+      {currentItems.map((product) => (
+        <div key={product._id} className=" h-fit group border shadow rounded-xl">
           <div className="relative overflow-hidden">
             <img
               className="h-64 w-full object-cover rounded-t-xl"
@@ -127,6 +135,16 @@ const ProductCard = ({ products }) => {
           </div>
         </div>
       ))}
+      </div>
+      <ReactPaginate
+                breakLabel="..."
+                nextLabel="Next >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel="< Previous"
+                renderOnZeroPageCount={null}
+              />
       <div>
         <ModalComponent modalProduct={modalProduct}  handleAddToCart={handleAddToCart}/>
       </div>

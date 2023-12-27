@@ -4,19 +4,36 @@ import PageBanner from "../../Shared/PageBanner/PageBanner";
 import { FaTrashAlt } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const ProceedToCheckout = () => {
   const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+
   const [userInfo, setUserInfo] = useState([]);
   const [payDisable, setDisable] = useState(true);
   const products = useLoaderData();
   let total = 0;
+  let productsPrice = 0;
   let quantity = 0;
+  let deliveryCharge = 0;
+  const cartProducts=[];
 
   for (const product of products) {
     quantity = product.quantity + quantity;
-    total = total + product.price * product.quantity;
-    
+    product.delivery_status="Pending";
+    cartProducts.push(product);
+    productsPrice = productsPrice + product.price * product.quantity;
+    if (userInfo.area === "outside dhaka") {
+      deliveryCharge = 150;
+      total = productsPrice + deliveryCharge;
+    } else if (userInfo.area === "inside dhaka") {
+      deliveryCharge = 100;
+      total = productsPrice + deliveryCharge;
+    } else {
+      total = productsPrice;
+    }
+    userInfo.totalPayable = total
   }
   const {
     register,
@@ -28,11 +45,17 @@ const ProceedToCheckout = () => {
 
   const onSubmit = (data) => {
     setDisable(false);
-    data.orderedProducts=products;
-
+    data.orderedProducts = cartProducts;
     setUserInfo(data);
   };
-  console.log(userInfo);
+
+  const handlePayment = ()=>{
+    axiosSecure.post("/order", userInfo).then((data) => {
+      window.location.replace(data.data.url)
+
+    })
+
+  }
   return (
     <div className="w-11/12 md:w-10/12 mx-auto ">
       <PageBanner name="Checkout" previousPage="Cart" currentPage="Checkout" />
@@ -139,18 +162,31 @@ const ProceedToCheckout = () => {
               <span>Total Product: </span>
               <span> {quantity}</span>
             </h3>
- 
-            <h4 className="text-xl flex justify-between "> <span className="font-bold">Total Price :</span> <span className="font-bold">{total} Tk</span></h4>
-           
-      
+
+            <h4 className="text-xl flex justify-between ">
+              {" "}
+              <span className="font-bold">Products Price :</span>{" "}
+              <span className="font-bold">{productsPrice} Tk</span>
+            </h4>
+            <h4 className="text-xl flex justify-between ">
+              {" "}
+              <span className="font-bold">Delivery Charge :</span>{" "}
+              <span className="font-bold">{deliveryCharge} Tk</span>
+            </h4>
+            <h4 className="text-xl flex justify-between ">
+              {" "}
+              <span className="font-bold">Total Price :</span>{" "}
+              <span className="font-bold">{total} Tk</span>
+            </h4>
+
             <div className="flex justify-center ">
-              <Link
-                to="/pay"
+              <button onClick={handlePayment}
+            
                 disabled={payDisable}
                 className="btn w-1/2  bg-[#6bb42f] text-white hover:text-[#6bb42f] rounded-3xl"
               >
                 Pay
-              </Link>
+              </button>
             </div>
           </div>
         </div>

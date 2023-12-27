@@ -28,7 +28,6 @@ const Register = () => {
       phone: data.phone,
       role: "user",
     };
-    console.log(savedUser);
     // creating user
     createUser(data.email, data.password)
       .then((result) => {
@@ -46,15 +45,13 @@ const Register = () => {
         //user profile update
         profileUpdate(data.name)
           .then((result) => {
-            console.log(savedUser);
-            fetch("http://localhost:5000/users", {
+            fetch("https://zoa-server.vercel.app/users", {
               method: "POST",
               headers: { "content-type": "application/json" },
               body: JSON.stringify(savedUser),
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log(data);
               });
             //saveUser(data.name, data.email);
             //showing sweet alert that user is registered

@@ -1,7 +1,7 @@
 import { getShoppingCart } from "../utilities/LocalStorage";
 
 const cartProductsLoader= async()=>{
-const loadedProducts = await fetch('http://localhost:5000/allProducts')
+const loadedProducts = await fetch('https://zoa-server.vercel.app/allProducts')
 const products = await loadedProducts.json()
 
 const storedCart = getShoppingCart();
@@ -15,7 +15,6 @@ for (const id in storedCart) {
     savedCart.push(addedProduct);
   }
 }
-console.log(savedCart)
 return  savedCart;
 }
 export default cartProductsLoader;

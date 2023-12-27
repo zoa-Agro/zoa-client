@@ -52,6 +52,7 @@ const AddProduct = () => {
   const onSubmit = (data) => {
     setLoading(true)
     const formData = new FormData();
+    const date=new Date();
     formData.append("image", data.image[0]);
     fetch(image_hoisting_url, {
       method: "POST",
@@ -69,11 +70,11 @@ const AddProduct = () => {
             available_quantity: parseInt(data.available_quantity),
             price: parseInt(data.price),
             image: imageData.data.display_url,
-            description: data.description
+            description: data.description,
+            createdAt: date
           
           };
-          console.log(data.category);
-          console.log(product);
+          
           if(data.category === 'Plants and Seeds'){
             axiosSecure.post("/plants", product).then((data) => {
               if (data.data.insertedId) {

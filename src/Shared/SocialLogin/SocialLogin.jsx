@@ -18,7 +18,7 @@ const SocialLogin = () => {
             phone: '',
             role: "user",
           };
-          fetch("http://localhost:5000/users", {
+          fetch("https://zoa-server.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -27,9 +27,7 @@ const SocialLogin = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               if (data.insertedId) {
-                console.log("success");
               }
             });
           navigate("/")

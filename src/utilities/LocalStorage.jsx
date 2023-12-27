@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 // use local storage to manage cart data
 const addToLocalStorage = (id) => {
@@ -5,9 +6,21 @@ const addToLocalStorage = (id) => {
     // add quantity
     const quantity = shoppingCart[id];
     if (!quantity) {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Successfully Added to Cart',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          })
         shoppingCart[id] = 1;
     }
     else {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Successfully Added to Cart',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          })
         const newQuantity = quantity + 1;
         shoppingCart[id] = newQuantity;
     }

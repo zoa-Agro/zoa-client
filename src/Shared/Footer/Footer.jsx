@@ -1,13 +1,15 @@
-import logo from '../../assets/images/logo.png'
+import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo.jpeg'
 const Footer = () => {
   return (
     <div >
-      <footer className="footer py-10 bg-base-200 text-base-content p-[8%] border-t">
+      <footer className="footer py-10 bg-200 text-base-content p-[8%] border border-t-[#6bb42f]">
         <aside>
+         <Link to="/">
          <img className='w-32' src={logo} alt="" />
-         <p className='text-[#6bb42f] font-semibold -mt-2'>Zone of Agriculture</p>
+        </Link>
           <p>
-           ZOA Agro ltd.
+           Green Agro ltd.
             <br />
             Providing best product.
           </p>
@@ -35,7 +37,7 @@ const Footer = () => {
       </footer>
       <footer className="footer footer-center p-4 bg-base-300 text-base-content">
   <aside>
-    <p>Copyright © 2023 - All right reserved by ZOA Agro Ltd</p>
+    <p>Copyright © 2023 - All right reserved by Green Agro Ltd</p>
   </aside>
 </footer>
     </div>

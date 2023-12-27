@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
 const AboutUs = () => {
   return (
-    <div className="w-11/12 md:w-10/12 mx-auto">
+    <div className="w-11/12 md:w-10/12 mx-auto mt-10">
       <PageBanner name="About Us" previousPage="Home" currentPage="About Us" />
 
       <div className=" ">
@@ -16,7 +16,7 @@ const AboutUs = () => {
           <img className=" hover:opacity-90" src={image} alt="" />
           <div className="space-y-2">
             <h2 className="text-xl text-[#6bb42f] font-medium">
-              Welcome to ZOA
+              Welcome to Green Agro
             </h2>
             <h1 className="text-3xl font-semibold">Our Journey to Dreams</h1>
             <p className="">

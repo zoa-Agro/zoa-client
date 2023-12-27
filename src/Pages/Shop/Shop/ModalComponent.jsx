@@ -2,7 +2,6 @@ import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const ModalComponent = ({ modalProduct, handleAddToCart }) => {
-  console.log(modalProduct);
   return (
     <dialog id="my_modal_5" className="modal  text-start">
       <div className="modal-box w-11/12 max-w-5xl">
