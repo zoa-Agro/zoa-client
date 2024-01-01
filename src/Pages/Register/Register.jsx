@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { user, createUser, profileUpdate, verifyUser, logOut } = useAuth();
@@ -81,6 +82,9 @@ const Register = () => {
 
   return (
     <div className="hero md:min-h-screen w-11/12 md:w-10/12 mx-auto">
+       <Helmet>
+        <title>Register | Green Agro </title>
+      </Helmet>
       <div className="hero-content flex-col md:flex-row gap-5 md:gap-20 ">
         <div className="text-center">
           <img className="" src={loginBanner} alt="" />

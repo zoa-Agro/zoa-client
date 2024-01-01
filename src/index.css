@@ -12,6 +12,7 @@ li a.active {
   color: #6bb42f!important;
   background-color: white!important;
   border-bottom: 2px solid #6bb42f;
+  font-weight: bold;
 }
 
 .swiper-pagination-bullet-active {

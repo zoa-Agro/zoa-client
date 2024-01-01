@@ -1,10 +1,14 @@
 import React from "react";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
 import { AiOutlineHome, AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import { Helmet } from "react-helmet";
 
 const ContactUs = () => {
   return (
     <div>
+       <Helmet>
+        <title>Contact Us | Green Agro </title>
+      </Helmet>
       <div className="w-11/12 md:w-10/12 mx-auto mt-10">
         <PageBanner
           name="Contact Us"
@@ -16,11 +20,7 @@ const ContactUs = () => {
             Keep in touch with us
           </h1>
           <p className="">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste aut
-            maiores hic voluptatum impedit consequuntur, optio assumenda quod.
-            Eligendi earum assumenda, voluptate ducimus omnis, ratione placeat
-            reprehenderit ut sint vel harum. Eaque hic vel illum delectus odit
-            suscipit dolorem dolor, ipsam, culpa repellendus qui distinctio?
+          Green Agro is led by its Chairman & CEO Mst. Sanjida Haque Saria. She is also the CEO of BrainZone.com.
           </p>
         </div>
       </div>
@@ -31,8 +31,8 @@ const ContactUs = () => {
           </div>
           <div>
             <h2 className="text-2xl">Phone:</h2>
-            <p className="text-gray-400">Mobile: (+880) 1779021567</p>
-            <p className="text-gray-400"> WhatsApp: (+880) 1779021567</p>
+            <p className="text-gray-400">Mobile: <br /> (+880) 1779021567</p>
+            <p className="text-gray-400"> WhatsApp: <br />(+880) 1779021567</p>
           </div>
         </div>
         <div className="flex gap-2 items-center   md:border-r-2">
@@ -41,7 +41,7 @@ const ContactUs = () => {
           </div>
           <div>
             <h2 className="text-2xl">Address:</h2>
-            <p className="text-gray-400">DattaPara ,Ashulia</p>
+           
             <p className="text-gray-400">Savar, Dhaka</p>
           </div>
         </div>
@@ -51,14 +51,13 @@ const ContactUs = () => {
           </div>
           <div>
             <h2 className="text-2xl">Email:</h2>
-            <p className="text-gray-400">zoa.agro@gmail.com</p>
-            <p className="text-gray-400">zoa@agro.com</p>
+            <p className="text-gray-400">greenagro@gmail.com</p>
           </div>
         </div>
       </div>
       <iframe
         className="w-full h-[250px] md:h-[400px]"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.427783826926!2d90.3085872737561!3d23.87444488400583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c334cd43907b%3A0x8e106319ee52d8a2!2sAshulia%20Model%20Town.!5e0!3m2!1sbn!2sbd!4v1698431611188!5m2!1sbn!2sbd"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.894465397896!2d90.26148677362852!3d23.85788098464488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755ea2a834796cb%3A0x5bac0007672b71c1!2zUmFkaW8gQ29sb255IFJkLCDgprjgpr7gpq3gpr7gprA!5e0!3m2!1sbn!2sbd!4v1704132421432!5m2!1sbn!2sbd"
         arial-hidden="true"
         loading="lazy"
       ></iframe>
@@ -67,8 +66,7 @@ const ContactUs = () => {
           Contact Us Now
         </h1>
         <p className="text-center my-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-          veniam.
+          Feel free to contact with us. We always loved to hear from our users.
         </p>
         <form action="">
           <div className="form-control ">

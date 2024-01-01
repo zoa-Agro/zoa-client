@@ -8,9 +8,10 @@ import { NavLink, Link, Outlet } from "react-router-dom";
 
 import useAuth from "../hooks/useAuth";
 import { BsDatabaseFillAdd } from "react-icons/bs";
-import logo from "../assets/images/logo.jpeg";
+import logo from "../assets/images/logo.jpg";
 import useAdmin from "../hooks/useAdmin";
 import useSeller from "../hooks/useSeller";
+import { Helmet } from "react-helmet";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -19,6 +20,9 @@ const Dashboard = () => {
   console.log(isAdmin);
   return (
     <div className="drawer lg:drawer-open">
+       <Helmet>
+        <title>Dashboard | Green Agro </title>
+      </Helmet>
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}
@@ -37,7 +41,7 @@ const Dashboard = () => {
         <div className="menu  md:w-80 h-full text-lg font-medium bg-[#8ac559]  text-base-content">
           <div className=" bg-white  flex justify-between items-center p-2 rounded md:px-5 mb-5">
             <div>
-            <Link to="/">  <img className=" w-20" src={logo} alt="" /></Link>
+            <Link to="/">  <img className=" w-20 md:w-44" src={logo} alt="" /></Link>
              
             </div>
             {/* <div>

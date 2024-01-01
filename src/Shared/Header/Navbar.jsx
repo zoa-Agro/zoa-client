@@ -1,7 +1,7 @@
 import { AiOutlineHeart } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { RxDashboard } from "react-icons/rx";
-import logo from "../../assets/images/logo.jpeg";
+import logo from "../../assets/images/logo.jpg";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import {
@@ -63,10 +63,10 @@ const Navbar = ({ products }) => {
       >
         <div className="card-body">
           <div className="card-actions">
-            <Link to={'/dashboard'} className="btn btn-success btn-block ">
+            <Link to={'/dashboard'} className="btn bg-[#6bb42f] hover:border-[#6bb42f] btn-block ">
               <RxDashboard /> Dashboard
             </Link>
-            <button onClick={logOut} className="btn btn-success btn-block">
+            <button onClick={logOut} className="btn bg-[#6bb42f] hover:border-[#6bb42f] btn-block">
               <FiLogOut /> Logout
             </button>
           </div>
@@ -105,7 +105,7 @@ const Navbar = ({ products }) => {
           </ul>
         </div>
         <Link to='/' className="">
-          <img className="w-20" src={logo} alt="" />
+          <img className=" w-44 md:w-1/2" src={logo} alt="" />
          
         </Link>
       </div>

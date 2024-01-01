@@ -5,6 +5,7 @@ import {
   removeFromLocalStorage,
 } from "../../utilities/LocalStorage";
 import { Link, useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
   const products =useLoaderData()
@@ -23,6 +24,9 @@ const Cart = () => {
   };
   return (
     <div className="w-11/12 md:w-10/12 mx-auto ">
+       <Helmet>
+        <title>Cart | Green Agro </title>
+      </Helmet>
       <PageBanner name="Shopping Cart" previousPage="Home" currentPage="Cart" />
 
       <div className="md:grid grid-cols-3 gap-10">

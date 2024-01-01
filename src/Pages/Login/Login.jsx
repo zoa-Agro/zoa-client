@@ -5,6 +5,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { userLogin,logOut } = useAuth();
@@ -40,6 +41,9 @@ const Login = () => {
 
   return (
     <div className="hero md:min-h-screen w-11/12 md:w-10/12 mx-auto">
+       <Helmet>
+        <title>Login | Green Agro </title>
+      </Helmet>
       <div className="hero-content flex-col md:flex-row gap-5 md:gap-20 ">
         <div className="text-center">
           <img className="" src={loginBanner} alt="" />

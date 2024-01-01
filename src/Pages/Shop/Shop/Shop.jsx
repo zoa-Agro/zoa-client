@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import ProductCard from "./ProductCard";
 import { Spinner } from "react-spinners-css";
 import PageBanner from "../../../Shared/PageBanner/PageBanner";
+import { Helmet } from "react-helmet";
 
 const Shop = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -78,6 +79,9 @@ const Shop = () => {
 
   return (
     <div className="w-11/12 md:w-10/12 mx-auto ">
+       <Helmet>
+        <title>Shop | Green Agro </title>
+      </Helmet>
       <div className="h-12"></div>
       <PageBanner name={category} previousPage="Home" currentPage="Shop" />
       {/* <div className="p-5 shadow-xl mb-10 bg-white">
